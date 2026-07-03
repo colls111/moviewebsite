@@ -266,7 +266,7 @@ How Much Does It Cost Dexter To Kill One Person?
 document.addEventListener("keydown", (e) => {
 
     showUI();
-    
+
     // Ignore shortcuts while typing in an input
     if (e.target.tagName === "INPUT")
         return;
@@ -299,8 +299,8 @@ document.addEventListener("keydown", (e) => {
 
         // Mute
         case "m":
-            video.muted = !video.muted;
-            mute.textContent = video.muted ? "🔇" : "🔊";
+            e.preventDefault();
+            mute.click();
             break;
 
         // Rewind 10s
