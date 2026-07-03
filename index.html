@@ -129,11 +129,29 @@ body{
 }
 
 .thumb{
+
     height:125px;
-    background:#222;
+
+    background:linear-gradient(
+        135deg,
+        #2a2a2a,
+        #3a3a3a
+    );
+
     border-radius:12px;
+
     position:relative;
+
     overflow:hidden;
+
+    transition:.2s;
+
+}
+
+.card:hover .thumb{
+
+    transform:scale(1.03);
+
 }
 
 .thumb img{
@@ -193,15 +211,26 @@ body{
     <h2 class="section-title">Recently Added</h2>
 
     <div class="grid">
-
-        <a class="card" href="watch.html?id=dexter-cost">
+        <a class="card" href="#">
             <div class="thumb">
-                <img src="thumbnail.jpg">
-                <span class="duration">12:45</span>
+                <div class="duration">12:45</div>
             </div>
-            <h3>How Much Does It Cost Dexter To Kill One Person?</h3>
+            <h3>Video Title</h3>
         </a>
 
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">8:32</div>
+            </div>
+            <h3>Another Video</h3>
+        </a>
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">24:18</div>
+            </div>
+            <h3>Third Video</h3>
+        </a>
     </div>
 
 </div>
