@@ -85,6 +85,17 @@ input[type=range]{
 
 </div>
 
+<div class="player" id="player">
+    <video id="video">
+        ...
+    </video>
+
+    <div class="controls">
+        ...
+        <button id="fullscreen">⛶</button>
+    </div>
+</div>
+
 </div>
 
 <script>
@@ -93,6 +104,7 @@ const video = document.getElementById("video");
 const play = document.getElementById("play");
 const progress = document.getElementById("progress");
 const time = document.getElementById("time");
+const player = document.getElementById("player");
 const fullscreen = document.getElementById("fullscreen");
 
 function format(seconds){
@@ -135,11 +147,23 @@ progress.oninput = () => {
 
 fullscreen.onclick = () => {
 
-    if(video.requestFullscreen){
-        video.requestFullscreen();
+    if (!document.fullscreenElement) {
+        player.requestFullscreen();
+    } else {
+        document.exitFullscreen();
     }
 
 };
+
+document.addEventListener("fullscreenchange", () => {
+
+    if (document.fullscreenElement) {
+        fullscreen.textContent = "🗗"; // Exit fullscreen
+    } else {
+        fullscreen.textContent = "⛶"; // Enter fullscreen
+    }
+
+});
 
 </script>
 
