@@ -147,31 +147,6 @@ button:hover{
 
 }
 
-#progress{
-
-    appearance:none;
-
-    height:4px;
-
-    background:#555;
-
-    border-radius:5px;
-
-}
-
-#progress::-webkit-slider-thumb{
-
-    appearance:none;
-
-    width:14px;
-    height:14px;
-
-    border-radius:50%;
-
-    background:white;
-
-}
-
 </style>
 
 </head>
@@ -366,23 +341,6 @@ play.onclick=()=>{
 
 video.onplay=()=>play.textContent="⏸";
 video.onpause=()=>play.textContent="▶";
-
-let dragging = false;
-
-progress.addEventListener("pointerdown", () => {
-
-    dragging = true;
-
-});
-
-progress.addEventListener("pointerup", () => {
-
-    dragging = false;
-
-    video.currentTime =
-        progress.value / 100 * video.duration;
-
-});
 
 rewind.onclick=()=>{
 
