@@ -261,6 +261,8 @@ How Much Does It Cost Dexter To Kill One Person?
 
 <div class="right">
 
+<button id="jumpTime">🕒</button>
+
 <button id="captions">CC</button>
 
 <button id="fullscreen">⛶</button>
@@ -365,6 +367,8 @@ const fullscreen = document.getElementById("fullscreen");
 const time = document.getElementById("time");
 
 const player = document.querySelector(".player");
+
+const jumpTime = document.getElementById("jumpTime");
 
 let hideTimer;
 
@@ -541,6 +545,12 @@ captions.onclick = () => {
     captions.classList.toggle("active", captionsEnabled);
 
     // Eventually turn subtitles on/off here
+
+};
+
+jumpTime.onclick = () => {
+
+    // Open your custom "Go to Time" popup
 
 };
 
