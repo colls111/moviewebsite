@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Video Home</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+    min-height:100vh;
+}
+
+.header{
+    padding:24px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.search{
+    background:#151515;
+    border:1px solid #333;
+    color:white;
+    padding:10px 14px;
+    border-radius:8px;
+    outline:none;
+}
+
+.container{
+    padding:20px 40px;
+}
+
+.hero{
+    background:linear-gradient(to right,#111,#222);
+    padding:40px;
+    border-radius:18px;
+    margin-bottom:35px;
+}
+
+.hero h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#bbb;
+    margin-bottom:20px;
+}
+
+.watch-btn{
+    display:inline-block;
+    background:white;
+    color:black;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.section-title{
+    margin-bottom:16px;
+    font-size:22px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:22px;
+}
+
+.card{
+    cursor:pointer;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:scale(1.04);
+}
+
+.thumb{
+    height:125px;
+    background:#222;
+    border-radius:12px;
+    position:relative;
+    overflow:hidden;
+}
+
+.thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.duration{
+    position:absolute;
+    right:8px;
+    bottom:8px;
+    background:rgba(0,0,0,.8);
+    padding:4px 7px;
+    border-radius:5px;
+    font-size:13px;
+}
+
+.card h3{
+    font-size:16px;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">My Videos</div>
+    <input class="search" placeholder="Search videos...">
+</div>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>Featured Video</h1>
+        <p>How Much Does It Cost Dexter To Kill One Person?</p>
+        <a class="watch-btn" href="watch.html?id=dexter-cost">▶ Watch Now</a>
+    </div>
+
+    <h2 class="section-title">Recently Added</h2>
+
+    <div class="grid">
+
+        <a class="card" href="watch.html?id=dexter-cost">
+            <div class="thumb">
+                <img src="thumbnail.jpg">
+                <span class="duration">12:45</span>
+            </div>
+            <h3>How Much Does It Cost Dexter To Kill One Person?</h3>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
