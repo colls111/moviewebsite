@@ -1,41 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Video Player</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+body{
+    margin:0;
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
+}
 
-        body {
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
+.player{
+    width:900px;
+    max-width:95%;
+}
 
-        video {
-            width: 100vw;
-            height: 100vh;
-            object-fit: contain;
-            background: black;
-        }
-    </style>
+video{
+    width:100%;
+    display:block;
+    background:black;
+}
+
+.controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#222;
+    padding:10px;
+}
+
+button{
+    background:#444;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#666;
+}
+
+input[type=range]{
+    flex:1;
+}
+
+#time{
+    width:100px;
+    text-align:center;
+    color:white;
+}
+</style>
+
 </head>
 <body>
 
-<video controls autoplay>
-    <source src="https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/How%20Much%20Does%20It%20Cost%20Dexter%20To%20Kill%20One%20Person.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+<div class="player">
+
+<video id="video">
+    <source src="https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/How%20Much%20Does%20It%20Cost%20Dexter%20To%20Kill%20One%20Person.mp4">
 </video>
+
+<div class="controls">
+
+    <button id="play">▶</button>
+
+    <input
+        id="progress"
+        type="range"
+        min="0"
+        max="100"
+        value="0">
+
+    <span id="time">0:00 / 0:00</span>
+
+    <button id="fullscreen">⛶</button>
+
+</div>
+
+</div>
+
+<script>
+
+const video = document.getElementById("video");
+const play = document.getElementById("play");
+const progress = document.getElementById("progress");
+const time = document.getElementById("time");
+const fullscreen = document.getElementById("fullscreen");
+
+function format(seconds){
+    if(isNaN(seconds)) return "0:00";
+
+    const mins = Math.floor(seconds/60);
+    const secs = Math.floor(seconds%60);
+
+    return `${mins}:${secs.toString().padStart(2,"0")}`;
+}
+
+play.onclick = () => {
+
+    if(video.paused){
+        video.play();
+    }else{
+        video.pause();
+    }
+
+};
+
+video.onplay = () => play.textContent = "⏸";
+video.onpause = () => play.textContent = "▶";
+
+video.ontimeupdate = () => {
+
+    progress.value = (video.currentTime / video.duration) * 100;
+
+    time.textContent =
+        `${format(video.currentTime)} / ${format(video.duration)}`;
+
+};
+
+progress.oninput = () => {
+
+    video.currentTime =
+        (progress.value / 100) * video.duration;
+
+};
+
+fullscreen.onclick = () => {
+
+    if(video.requestFullscreen){
+        video.requestFullscreen();
+    }
+
+};
+
+</script>
 
 </body>
 </html>
