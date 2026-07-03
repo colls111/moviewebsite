@@ -3,106 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Custom Video Player</title>
 
 <style>
-body{
+
+*{
     margin:0;
-    background:#111;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#000;
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
-    font-family:Arial,sans-serif;
 }
 
 .player{
-    width:900px;
+    width:1000px;
     max-width:95%;
+    background:black;
 }
 
 video{
     width:100%;
     display:block;
-    background:black;
+}
+
+.bottom{
+
+    background:linear-gradient(to top,#111,#1a1a1a);
+
+    padding:10px 18px;
+
+}
+
+#progress{
+
+    width:100%;
+    margin-bottom:12px;
+
+}
+
+.info{
+
+    color:white;
+    margin-bottom:10px;
+
 }
 
 .controls{
+
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+
+    align-items:center;
+
+}
+
+.left,
+.right{
+
     display:flex;
     align-items:center;
-    gap:10px;
-    background:#222;
-    padding:10px;
+    gap:12px;
+
+}
+
+.right{
+
+    justify-content:flex-end;
+
+}
+
+.center{
+
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+
 }
 
 button{
-    background:#444;
-    color:white;
+
+    background:none;
     border:none;
-    padding:8px 14px;
+
+    color:white;
+    font-size:22px;
+
     cursor:pointer;
-    border-radius:5px;
+
 }
 
 button:hover{
-    background:#666;
+
+    color:#d0d0d0;
+
 }
 
-input[type=range]{
-    flex:1;
+.volume{
+
+    position:relative;
+    display:flex;
+    align-items:center;
+
 }
 
-#time{
-    width:100px;
-    text-align:center;
-    color:white;
+#volume{
+
+    position:absolute;
+
+    left:50%;
+    bottom:40px;
+
+    transform:translateX(-50%) rotate(-90deg);
+
+    width:90px;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.2s;
+
 }
+
+.volume:hover #volume{
+
+    opacity:1;
+    pointer-events:auto;
+
+}
+
 </style>
 
 </head>
+
 <body>
 
 <div class="player">
 
 <video id="video">
-    <source src="https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/How%20Much%20Does%20It%20Cost%20Dexter%20To%20Kill%20One%20Person.mp4">
+
+<source src="https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/How%20Much%20Does%20It%20Cost%20Dexter%20To%20Kill%20One%20Person.mp4">
+
 </video>
+
+<div class="bottom">
+
+<input id="progress" type="range" min="0" max="100" value="0">
+
+<div class="info">
+
+<span id="time">0:00 / 0:00</span>
+
+</div>
 
 <div class="controls">
 
-    <button id="rewind">⏪ 10</button>
+<div class="left">
 
-    <button id="play">▶</button>
+<button id="play">▶</button>
 
-    <button id="forward">10 ⏩</button>
+<button id="rewind">⏪</button>
 
-    <input id="progress" type="range" min="0" max="100" value="0">
+<button id="forward">⏩</button>
 
-    <span id="time">0:00 / 0:00</span>
+<div class="volume">
 
-    <button id="mute">🔊</button>
+<button id="mute">🔊</button>
 
-    <input
-        id="volume"
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value="1"
-        style="width:100px;">
+<input
+id="volume"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="1">
 
-    <select id="speed">
-        <option value="0.5">0.5x</option>
-        <option value="0.75">0.75x</option>
-        <option value="1" selected>1x</option>
-        <option value="1.25">1.25x</option>
-        <option value="1.5">1.5x</option>
-        <option value="2">2x</option>
-    </select>
+</div>
 
-    <button id="captions">CC</button>
+</div>
 
-    <button id="fullscreen">⛶</button>
+<div class="center">
+
+How Much Does It Cost Dexter To Kill One Person?
+
+</div>
+
+<div class="right">
+
+<button id="captions">CC</button>
+
+<button id="fullscreen">⛶</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -111,94 +213,111 @@ input[type=range]{
 <script>
 
 const video = document.getElementById("video");
+
 const play = document.getElementById("play");
-const progress = document.getElementById("progress");
-const time = document.getElementById("time");
-const fullscreen = document.getElementById("fullscreen");
 const rewind = document.getElementById("rewind");
 const forward = document.getElementById("forward");
+
+const progress = document.getElementById("progress");
+
 const mute = document.getElementById("mute");
 const volume = document.getElementById("volume");
-const speed = document.getElementById("speed");
-const captions = document.getElementById("captions");
+
+const fullscreen = document.getElementById("fullscreen");
+
+const time = document.getElementById("time");
 
 function format(seconds){
+
     if(isNaN(seconds)) return "0:00";
 
-    const mins = Math.floor(seconds/60);
-    const secs = Math.floor(seconds%60);
+    const mins=Math.floor(seconds/60);
+
+    const secs=Math.floor(seconds%60);
 
     return `${mins}:${secs.toString().padStart(2,"0")}`;
+
 }
 
-play.onclick = () => {
+play.onclick=()=>{
 
     if(video.paused){
+
         video.play();
+
     }else{
+
         video.pause();
+
     }
 
-};
+}
 
-video.onplay = () => play.textContent = "⏸";
-video.onpause = () => play.textContent = "▶";
+video.onplay=()=>play.textContent="⏸";
+video.onpause=()=>play.textContent="▶";
 
-video.ontimeupdate = () => {
+rewind.onclick=()=>{
 
-    progress.value = (video.currentTime / video.duration) * 100;
+    video.currentTime=Math.max(0,video.currentTime-10);
 
-    time.textContent =
-        `${format(video.currentTime)} / ${format(video.duration)}`;
+}
 
-};
+forward.onclick=()=>{
 
-progress.oninput = () => {
+    video.currentTime=Math.min(video.duration,video.currentTime+10);
 
-    video.currentTime =
-        (progress.value / 100) * video.duration;
+}
 
-};
+video.ontimeupdate=()=>{
 
-fullscreen.onclick = () => {
+    progress.value=(video.currentTime/video.duration)*100;
 
-    if(video.requestFullscreen){
-        video.requestFullscreen();
+    time.textContent=
+    `${format(video.currentTime)} / ${format(video.duration)}`;
+
+}
+
+progress.oninput=()=>{
+
+    video.currentTime=
+    (progress.value/100)*video.duration;
+
+}
+
+volume.oninput=()=>{
+
+    video.volume=volume.value;
+
+}
+
+mute.onclick=()=>{
+
+    video.muted=!video.muted;
+
+    mute.textContent=
+    video.muted ? "🔇" : "🔊";
+
+}
+
+fullscreen.onclick=()=>{
+
+    if(!document.fullscreenElement){
+
+        document.querySelector(".player").requestFullscreen();
+
+    }else{
+
+        document.exitFullscreen();
+
     }
 
-};
+}
 
-rewind.onclick = () => {
-    video.currentTime = Math.max(0, video.currentTime - 10);
-};
+document.getElementById("captions").onclick=()=>{
 
-forward.onclick = () => {
-    video.currentTime = Math.min(video.duration, video.currentTime + 10);
-};
+    alert("Captions coming soon.");
 
-volume.oninput = () => {
-    video.volume = volume.value;
-};
-
-mute.onclick = () => {
-
-    video.muted = !video.muted;
-
-    mute.textContent = video.muted ? "🔇" : "🔊";
-
-};
-
-speed.onchange = () => {
-
-    video.playbackRate = Number(speed.value);
-
-};
-
-captions.onclick = () => {
-
-    alert("Captions not added yet!");
-
-};
+}
 
 </script>
 
