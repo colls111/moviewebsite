@@ -448,10 +448,6 @@ value="1">
 
 <script>
 
-document.getElementById("videoTitle").textContent = videop.title;
-
-document.title = videop.title;
-
 document.addEventListener("keydown", (e) => {
 
     showUI();
@@ -562,6 +558,10 @@ const videos = JSON.parse(sessionStorage.getItem("videos"));
 const id = new URLSearchParams(window.location.search).get("id");
 
 const videop = videos.find(v => v.id === id);
+
+document.getElementById("videoTitle").textContent = videop.title;
+
+document.title = videop.title;
 
 video.src = videop.video;
 video.load();
