@@ -120,6 +120,39 @@ body{
     font-size:16px;
     margin-top:10px;
 }
+
+.nav{
+
+    display:flex;
+    gap:28px;
+
+}
+
+.nav a{
+
+    text-decoration:none;
+
+    color:#bdbdbd;
+
+    font-size:20px;
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+.nav a:hover{
+
+    color:white;
+
+}
+
+.nav a.active{
+
+    color:white;
+
+}
+    
 </style>
 </head>
 
@@ -133,10 +166,10 @@ body{
 
         <nav class="nav">
 
-            <a href="#">Home</a>
+            <a class="active" href="#">Home</a>
             <a href="#">Movies</a>
             <a href="#">Shows</a>
-
+        
         </nav>
 
     </div>
