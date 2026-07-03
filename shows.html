@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>C's Movies</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+    min-height:100vh;
+}
+
+.header{
+    padding:24px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo,
+.logo:visited{
+
+    color:white;
+    text-decoration:none;
+
+    font-size:28px;
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    transition:.2s;
+
+}
+
+.logo:hover{
+
+    color:#8db9ff;
+    transform:scale(1.03);
+
+}
+
+.nav{
+
+    display:flex;
+    gap:30px;
+
+}
+
+.nav a{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    color:white;
+    text-decoration:none;
+
+    font-size:19px;
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+.nav a:hover{
+
+    transform:scale(1.05);
+
+}
+
+.nav a.active{
+
+    color:#8db9ff;
+
+}
+
+.search{
+
+    background:#151515;
+    border:1px solid #333;
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    outline:none;
+
+}
+
+.container{
+
+    padding:30px 40px;
+
+}
+
+.page-title{
+
+    font-size:38px;
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#999;
+    margin-bottom:35px;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+
+    gap:24px;
+
+}
+
+.card{
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:.2s;
+
+}
+
+.card:hover{
+
+    transform:scale(1.03);
+
+}
+
+.thumb{
+
+    width:100%;
+    aspect-ratio:16/9;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #2a2a2a,
+        #3d3d3d
+    );
+
+    position:relative;
+
+}
+
+.duration{
+
+    position:absolute;
+
+    right:10px;
+    bottom:10px;
+
+    background:rgba(0,0,0,.8);
+
+    padding:4px 8px;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+}
+
+.card h3{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+}
+
+.card p{
+
+    color:#9f9f9f;
+
+    margin-top:5px;
+
+    font-size:14px;
+
+}
+
+</style>
+
+</head>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<body>
+
+<div class="header">
+
+    <div style="display:flex;align-items:center;gap:40px;">
+
+        <a href="index.html" class="logo">
+            🎬 C's Movies
+        </a>
+
+        <nav class="nav">
+
+            <a href="index.html">🏠 Home</a>
+            <a class="active" href="movies.html">🎬 Movies</a>
+            <a href="shows.html">📺 Shows</a>
+
+        </nav>
+
+    </div>
+
+    <input class="search" placeholder="🔎 Search movies">
+
+</div>
+
+<div class="container">
+
+    <h1 class="page-title">📺 Movies</h1>
+
+    <p class="subtitle">
+        Browse all show content.
+    </p>
+
+    <div class="grid">
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">1:42:18</div>
+            </div>
+            <h3>Movie Title</h3>
+            <p>Action</p>
+        </a>
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">2:08:54</div>
+            </div>
+            <h3>Another Movie</h3>
+            <p>Sci-Fi</p>
+        </a>
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">1:36:02</div>
+            </div>
+            <h3>Placeholder Movie</h3>
+            <p>Drama</p>
+        </a>
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">1:57:41</div>
+            </div>
+            <h3>Movie Four</h3>
+            <p>Thriller</p>
+        </a>
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">2:15:08</div>
+            </div>
+            <h3>Movie Five</h3>
+            <p>Comedy</p>
+        </a>
+
+        <a class="card" href="#">
+            <div class="thumb">
+                <div class="duration">1:28:11</div>
+            </div>
+            <h3>Movie Six</h3>
+            <p>Adventure</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
