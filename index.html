@@ -91,6 +91,13 @@ video{
 
 button{
 
+    width:40px;
+    height:40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     background:none;
     border:none;
 
@@ -137,6 +144,31 @@ button:hover{
 
     opacity:1;
     pointer-events:auto;
+
+}
+
+#progress{
+
+    appearance:none;
+
+    height:4px;
+
+    background:#555;
+
+    border-radius:5px;
+
+}
+
+#progress::-webkit-slider-thumb{
+
+    appearance:none;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:white;
 
 }
 
@@ -198,7 +230,15 @@ How Much Does It Cost Dexter To Kill One Person?
 
 <div class="right">
 
-<button id="captions">CC</button>
+<button id="captions">
+
+<svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+
+<path d="M21 4H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-8 9H9v-2h4v2Zm6 0h-4v-2h4v2Z"/>
+
+</svg>
+
+</button>
 
 <button id="fullscreen">⛶</button>
 
@@ -327,6 +367,23 @@ play.onclick=()=>{
 video.onplay=()=>play.textContent="⏸";
 video.onpause=()=>play.textContent="▶";
 
+let dragging = false;
+
+progress.addEventListener("pointerdown", () => {
+
+    dragging = true;
+
+});
+
+progress.addEventListener("pointerup", () => {
+
+    dragging = false;
+
+    video.currentTime =
+        progress.value / 100 * video.duration;
+
+});
+
 rewind.onclick=()=>{
 
     video.currentTime=Math.max(0,video.currentTime-10);
@@ -373,20 +430,41 @@ progress.oninput=()=>{
 
 }
 
-volume.oninput=()=>{
+volume.oninput = () => {
 
-    video.volume=volume.value;
+    video.volume = volume.value;
+    video.muted = video.volume == 0;
 
-}
+    mute.textContent =
+        video.volume == 0 ? "🔇" : "🔊";
 
-mute.onclick=()=>{
+};
 
-    video.muted=!video.muted;
+let lastVolume = 1;
 
-    mute.textContent=
-    video.muted ? "🔇" : "🔊";
+mute.onclick = () => {
 
-}
+    if (!video.muted && video.volume > 0) {
+
+        lastVolume = video.volume;
+
+        video.muted = true;
+        video.volume = 0;
+        volume.value = 0;
+
+        mute.textContent = "🔇";
+
+    } else {
+
+        video.muted = false;
+        video.volume = lastVolume;
+        volume.value = lastVolume;
+
+        mute.textContent = "🔊";
+
+    }
+
+};
 
 fullscreen.onclick=()=>{
 
