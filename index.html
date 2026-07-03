@@ -69,12 +69,23 @@ body{
 }
     
 .search{
+
     background:#151515;
-    border:1px solid #333;
+
+    border:2px solid #2c2c2c;
+
     color:white;
-    padding:10px 14px;
-    border-radius:8px;
-    outline:none;
+
+    transition:.2s;
+
+}
+
+.search:focus{
+
+    border-color:#4da3ff;
+
+    box-shadow:0 0 12px rgba(77,163,255,.35);
+
 }
 
 .container{
@@ -170,15 +181,15 @@ body{
 
         <nav class="nav">
 
-            <a class="active" href="#">Home</a>
-            <a class="active" href="#">Movies</a>
-            <a class="active" href="#">Shows</a>
+            <a class="active" href="#">🏠 Home</a>
+            <a href="#">🎬 Movies</a>
+            <a href="#">📺 Shows</a>
         
         </nav>
 
     </div>
 
-    <input class="search" placeholder="Search Content...">
+    <input class="search" placeholder="🔎 Search content">
 
 </div>
 
