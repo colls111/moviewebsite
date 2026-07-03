@@ -7,7 +7,6 @@
 <title>C's Movies</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -16,859 +15,326 @@
 }
 
 body{
-
     background:#000;
-
-    margin:0;
-
-}
-
-.player{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100vw;
-    height:100vh;
-
-    background:black;
-
-    overflow:hidden;
-
-}
-
-video{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-
-.bottom{
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    padding:16px 20px;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.85),
-        rgba(0,0,0,.45),
-        transparent
-    );
-
-    transition:opacity .3s;
-
-    opacity:1;
-
-}
-
-.player.hide-ui .bottom{
-
-    opacity:0;
-    pointer-events:none;
-
-}
-
-.player.hide-ui{
-
-    cursor:none;
-
-}
-
-.player:not(.hide-ui){
-
-    cursor:default;
-
-}
-
-#progress{
-
-    width:100%;
-    margin-bottom:12px;
-
-}
-
-#captions{
-
-    border-bottom:2px solid transparent;
-    transition:
-        transform .15s ease,
-        color .15s ease,
-        border-color .15s ease;
-
-}
-
-#captions.active{
-
-    border-bottom-color:white;
-
-}
-
-.info{
-
     color:white;
-    margin-bottom:10px;
-
+    min-height:100vh;
 }
 
-.controls{
-
-    display:grid;
-    grid-template-columns:1fr auto 1fr;
-
-    align-items:center;
-
-}
-
-.left,
-.right{
-
+.header{
+    padding:24px 40px;
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    gap:12px;
-
 }
 
-.right{
-
-    justify-content:flex-end;
-
-}
-
-.center{
-
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    text-align:center;
-
-}
-
-button{
-
-    width:40px;
-    height:40px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:none;
-    border:none;
-
-    color:white;
-    font-size:22px;
-
-    cursor:pointer;
-
-    transition:
-        transform .15s ease,
-        color .15s ease;
-}
-
-button:hover{
-
-    color:#d0d0d0;
-    transform:scale(1.15);
-
-}
-
-.volume{
-
-    position:relative;
-    display:flex;
-    align-items:center;
-
-}
-
-#volume{
-
-    position:absolute;
-
-    left:50%;
-    bottom:75px;
-
-    transform:translateX(-50%) rotate(-90deg);
-
-    width:90px;
-
-    opacity:0;
-    pointer-events:none;
-
-    transition:.2s;
-
-}
-
-.volume:hover #volume{
-
-    opacity:1;
-    pointer-events:auto;
-
-}
-
-.jump-container{
-
-    position:relative;
-
-}
-
-.jump-popup{
-
-    position:absolute;
-
-    bottom:55px;
-    right:0;
-
-    display:flex;
-    gap:8px;
-
-    padding:8px;
-
-    background:rgba(20,20,20,.95);
-
-    border-radius:8px;
-
-    opacity:0;
-    pointer-events:none;
-
-    transform:translateY(10px);
-
-    transition:.2s;
-
-}
-
-.jump-popup.show{
-
-    opacity:1;
-    pointer-events:auto;
-
-    transform:translateY(0);
-
-}
-
-.jump-popup input{
-
-    width:70px;
-
-    background:#2a2a2a;
+.logo,
+.logo:visited{
 
     color:white;
 
-    border:none;
-
-    outline:none;
-
-    padding:6px 8px;
-
-    border-radius:6px;
-
-    text-align:center;
-
-}
-
-.jump-popup button{
-
-    width:auto;
-    height:auto;
-
-    padding:6px 12px;
-
-    font-size:15px;
-
-}
-
-.back-btn{
-
-    position:absolute;
-
-    top:24px;
-    left:24px;
-
-    background:none;
-    border:none;
-
-    color:white;
+    text-decoration:none;
 
     font-size:28px;
     font-weight:bold;
 
-    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    z-index:10;
-
-    transition:
-        opacity .3s,
-        transform .15s,
-        color .15s;
+    transition:.2s;
 
 }
 
-.back-btn:hover{
+.logo:hover{
 
     color:#8db9ff;
 
-    transform:scale(1.08);
+    transform:scale(1.03);
 
 }
 
-.player.hide-ui .back-btn{
+.nav{
+    display:flex;
+    gap:30px;
+}
 
-    opacity:0;
-    pointer-events:none;
+.nav a{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:19px;
+    font-weight:bold;
+
+    transition:.2s;
 
 }
 
-.center-icon{
+.nav a:hover{
 
+    color:white;
+    transform:scale(1.05);
+
+}
+
+.nav a.active{
+
+    color:#8db9ff;
+
+}
+    
+.search{
+    background:#151515;
+    border:1px solid #333;
+    color:white;
+    padding:10px 14px;
+    border-radius:8px;
+    outline:none;
+}
+
+.container{
+    padding:20px 40px;
+}
+
+.hero{
+    background:linear-gradient(to right,#111,#222);
+    padding:40px;
+    border-radius:18px;
+    margin-bottom:35px;
+}
+
+.hero h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#bbb;
+    margin-bottom:20px;
+}
+
+.watch-btn{
+    display:inline-block;
+    background:white;
+    color:black;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.section-title{
+    margin-bottom:16px;
+    font-size:22px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:22px;
+}
+
+.card{
+    cursor:pointer;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:scale(1.04);
+}
+
+.thumb{
+
+    height:125px;
+
+    background:linear-gradient(
+        135deg,
+        #2a2a2a,
+        #3a3a3a
+    );
+
+    border-radius:12px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.2s;
+
+}
+
+.card:hover .thumb{
+
+    transform:scale(1.03);
+
+}
+
+.thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.duration{
     position:absolute;
-
-    z-index:10;
-
-    top:50%;
-    left:50%;
-
-    transform:translate(-50%,-50%) scale(.8);
-
-    font-size:90px;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:
-        opacity .25s ease,
-        transform .25s ease;
-
+    right:8px;
+    bottom:8px;
+    background:rgba(0,0,0,.8);
+    padding:4px 7px;
+    border-radius:5px;
+    font-size:13px;
 }
 
-.center-icon.show{
-
-    opacity:1;
-
-    transform:translate(-50%,-50%) scale(1);
-
+.card h3{
+    font-size:16px;
+    margin-top:10px;
 }
-
+    
 </style>
-
 </head>
 
 <link rel="icon" type="image/png" href="favicon.png">
 
 <body>
 
-<div class="player">
+<div class="header">
 
-<button id="back" class="back-btn">⬅️</button>
+    <div style="display:flex;align-items:center;gap:40px;">
 
-<video id="video"></video>
+        <a href="index.html" class="logo">
 
-</video>
+            🎬 C's Movies
 
-<div id="centerIcon" class="center-icon">▶️</div>
+        </a>
 
-<div class="bottom">
+        <nav class="nav">
 
-<input id="progress" type="range" min="0" max="100" step="any" value="0">
-
-<div class="info">
-
-<span id="time">0:00 / 0:00</span>
-
-</div>
-
-<div class="controls">
-
-<div class="left">
-
-<button id="play">▶️</button>
-
-<button id="rewind">⏪</button>
-
-<button id="forward">⏩</button>
-
-<div class="volume">
-
-<button id="mute">🔊</button>
-
-<input
-id="volume"
-type="range"
-min="0"
-max="1"
-step="0.01"
-value="1">
-
-</div>
-
-</div>
-
-<div id="videoTitle" class="center"></div>>
-
-<div class="right">
-
-    <div class="jump-container">
-
-        <button id="jumpTime">🕒</button>
-
-        <div id="jumpPopup" class="jump-popup">
-
-            <input
-                id="jumpInput"
-                type="text"
-                placeholder="0:45">
-
-            <button id="jumpGo">Go</button>
-
-        </div>
+            <a class="active" href="#">🏠 Home</a>
+            <a href="movies.html">🎬 Movies</a>
+            <a href="shows.html">📺 Shows</a>
+        
+        </nav>
 
     </div>
 
-    <button id="captions">CC</button>
-    
-    <button id="fullscreen">⛶</button>
+    <input class="search" placeholder="🔎 Search content">
 
 </div>
 
-</div>
+<div class="container">
 
-</div>
+    <div class="hero">
+        <h1>Featured Video</h1>
+        <p>How Much Does It Cost Dexter To Kill One Person?</p>
+        <a class="watch-btn" href="watch.html?id=dexter-cost">▶ Watch Now</a>
+    </div>
 
-</div>
+    <h2 class="section-title">All Content</h2>
+
+    <div class="grid" id="videoGrid"></div>
 
 <script>
 
-document.addEventListener("keydown", (e) => {
+function formatTime(seconds){
 
-    showUI();
-
-    // Ignore shortcuts while typing in an input
-    if (e.target.tagName === "INPUT")
-        return;
-
-
-    switch (e.key.toLowerCase()) {
-
-        // Play / Pause
-        case " ":
-        case "k":
-            e.preventDefault();
-
-            if (video.paused) {
-                video.play();
-                showCenterIcon("▶️");
-            } 
-            else {
-                video.pause();
-                showCenterIcon("⏸️");
-            }
-                
-
-            break;
-
-        // Fullscreen
-        case "f":
-            e.preventDefault();
-
-            if (!document.fullscreenElement)
-                document.querySelector(".player").requestFullscreen();
-            else
-                document.exitFullscreen();
-
-            break;
-
-        // Mute
-        case "m":
-            e.preventDefault();
-            mute.click();
-            break;
-
-        // Rewind 10s
-        case "arrowleft":
-            e.preventDefault();
-            video.currentTime = Math.max(0, video.currentTime - 10);
-            break;
-
-        // Forward 10s
-        case "arrowright":
-            e.preventDefault();
-            video.currentTime = Math.min(video.duration, video.currentTime + 10);
-            break;
-
-        // Volume Up
-        case "arrowup":
-            e.preventDefault();
-
-            video.volume = Math.min(1, video.volume + 0.05);
-            volume.value = video.volume;
-
-            break;
-
-        // Volume Down
-        case "arrowdown":
-            e.preventDefault();
-
-            video.volume = Math.max(0, video.volume - 0.05);
-            volume.value = video.volume;
-
-            break;
-
-    }
-
-});
-
-const video = document.getElementById("video");
-
-const play = document.getElementById("play");
-const rewind = document.getElementById("rewind");
-const forward = document.getElementById("forward");
-
-const progress = document.getElementById("progress");
-
-const mute = document.getElementById("mute");
-const volume = document.getElementById("volume");
-
-const fullscreen = document.getElementById("fullscreen");
-
-const time = document.getElementById("time");
-
-const player = document.querySelector(".player");
-
-const jumpTime = document.getElementById("jumpTime");
-const jumpPopup = document.getElementById("jumpPopup");
-const jumpInput = document.getElementById("jumpInput");
-const jumpGo = document.getElementById("jumpGo");
-
-const back = document.getElementById("back");
-
-const centerIcon = document.getElementById("centerIcon");
-
-const videos = JSON.parse(sessionStorage.getItem("videos"));
-
-const id = new URLSearchParams(window.location.search).get("id");
-
-const videop = videos.find(v => v.id === id);
-
-document.getElementById("videoTitle").textContent = videop.title;
-
-document.title = videop.title;
-
-video.src = videop.video;
-video.load();
-
-if (!videop) {
-
-    alert("Video not found.");
-    window.location.href = "index.html";
-
-}
-
-let hideTimer;
-
-function showUI(){
-
-    player.classList.remove("hide-ui");
-
-    clearTimeout(hideTimer);
-
-    if(!video.paused){
-
-        hideTimer = setTimeout(()=>{
-
-            player.classList.add("hide-ui");
-
-        },2500);
-
-    }
-
-}
-
-function parseTime(text){
-
-    text = text.trim();
-
-    const parts = text.split(":").map(Number);
-
-    if(parts.some(isNaN))
-        return null;
-
-    if(parts.length == 1){
-
-        return parts[0];
-
-    }
-
-    if(parts.length == 2){
-
-        return parts[0] * 60 + parts[1];
-
-    }
-
-    if(parts.length == 3){
-
-        return parts[0] * 3600 +
-               parts[1] * 60 +
-               parts[2];
-
-    }
-
-    return null;
-
-}
-
-function showCenterIcon(icon){
-
-    centerIcon.textContent = icon;
-
-    centerIcon.classList.add("show");
-
-    clearTimeout(centerIcon.timer);
-
-    centerIcon.timer = setTimeout(()=>{
-
-        centerIcon.classList.remove("show");
-
-    },350);
-
-}
-
-video.onloadedmetadata = () => {
-
-    progress.max = video.duration;
-
-};
-
-back.onclick = () => {
-
-    window.location.href = "index.html";
-
-};
-
-player.addEventListener("mousemove",showUI);
-
-player.addEventListener("mouseenter",showUI);
-
-video.addEventListener("play",showUI);
-
-video.addEventListener("pause",()=>{
-
-    clearTimeout(hideTimer);
-
-    player.classList.remove("hide-ui");
-
-});
-
-function format(seconds){
-
-    if(isNaN(seconds)) return "0:00";
-
-    const mins=Math.floor(seconds/60);
-
-    const secs=Math.floor(seconds%60);
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
 
     return `${mins}:${secs.toString().padStart(2,"0")}`;
 
 }
 
-play.onclick=()=>{
+const API_URL = "https://movie-backend-smoky.vercel.app/api/videos";
 
-    if(video.paused){
+async function loadVideos() {
 
-        video.play();
+    const grid = document.getElementById("videoGrid");
 
-    }else{
+    try {
 
-        video.pause();
+        let videos;
+
+        // Use cached videos if available
+        const cached = sessionStorage.getItem("videos");
+
+        if (cached) {
+
+            videos = JSON.parse(cached);
+
+            console.log("Loaded videos from cache.");
+
+        } else {
+
+            const response = await fetch(API_URL);
+
+            videos = await response.json();
+
+            // Save for the rest of the session
+            sessionStorage.setItem(
+                "videos",
+                JSON.stringify(videos)
+            );
+
+            console.log("Downloaded videos from API.");
+
+        }
+
+        grid.innerHTML = "";
+
+        videos.forEach(video => {
+
+            const card = document.createElement("a");
+
+            card.className = "card";
+
+            card.href = `watch.html?id=${video.id}`;
+
+            card.innerHTML = `
+
+                <div class="thumb">
+
+                    ${
+                        video.thumbnail
+                        ? `<img src="${video.thumbnail}" alt="${video.title}">`
+                        : ""
+                    }
+
+                    <div class="duration">
+                        ${formatTime(video.duration)}
+                    </div>
+
+                </div>
+
+                <h3>${video.title}</h3>
+
+            `;
+
+            grid.appendChild(card);
+
+        });
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+        grid.innerHTML = "<p>Failed to load videos.</p>";
 
     }
 
 }
 
-video.onplay=()=>play.textContent="⏸️";
-video.onpause=()=>play.textContent="▶️";
-
-rewind.onclick=()=>{
-
-    video.currentTime=Math.max(0,video.currentTime-10);
-
-}
-
-forward.onclick=()=>{
-
-    video.currentTime=Math.min(video.duration,video.currentTime+10);
-
-}
-
-video.ontimeupdate=()=>{
-
-    progress.value = video.currentTime;
-
-    time.textContent=
-    `${format(video.currentTime)} / ${format(video.duration)}`;
-
-}
-
-video.addEventListener("click", () => {
-
-    if (video.paused) {
-        video.play();
-        showCenterIcon("▶️");
-    }
-        
-    else {
-        video.pause();
-        showCenterIcon("⏸️");
-    }
-        
-
-});
-
-video.addEventListener("dblclick", () => {
-
-    if (!document.fullscreenElement)
-        document.querySelector(".player").requestFullscreen();
-    else
-        document.exitFullscreen();
-
-});
-
-progress.oninput = () => {
-
-    video.currentTime = progress.value;
-
-}
-
-volume.oninput = () => {
-
-    video.volume = volume.value;
-    video.muted = video.volume == 0;
-
-    mute.textContent =
-        video.volume == 0 ? "🔇" : "🔊";
-
-};
-
-let lastVolume = 1;
-
-mute.onclick = () => {
-
-    if (!video.muted && video.volume > 0) {
-
-        lastVolume = video.volume;
-
-        video.muted = true;
-        video.volume = 0;
-        volume.value = 0;
-
-        mute.textContent = "🔇";
-
-    } else {
-
-        video.muted = false;
-        video.volume = lastVolume;
-        volume.value = lastVolume;
-
-        mute.textContent = "🔊";
-
-    }
-
-};
-
-fullscreen.onclick=()=>{
-
-    if(!document.fullscreenElement){
-
-        document.querySelector(".player").requestFullscreen();
-
-    }else{
-
-        document.exitFullscreen();
-
-    }
-
-}
-
-jumpInput.addEventListener("keydown",e=>{
-
-    if(e.key == "Enter"){
-
-        jumpGo.click();
-
-    }
-
-});
-
-const captions = document.getElementById("captions");
-
-let captionsEnabled = false;
-
-captions.onclick = () => {
-
-    captionsEnabled = !captionsEnabled;
-
-    captions.classList.toggle("active", captionsEnabled);
-
-    // Eventually turn subtitles on/off here
-
-};
-
-jumpTime.onclick = (e) => {
-
-    e.stopPropagation();
-
-    jumpPopup.classList.toggle("show");
-
-    if(jumpPopup.classList.contains("show")){
-
-        jumpInput.focus();
-        jumpInput.select();
-
-    }
-
-};
-
-jumpGo.onclick = () => {
-
-    const seconds = parseTime(jumpInput.value);
-
-    if(seconds == null){
-
-        return;
-
-    }
-
-    video.currentTime = Math.min(
-        Math.max(seconds,0),
-        video.duration
-    );
-
-    jumpPopup.classList.remove("show");
-
-};
-
-document.addEventListener("click",()=>{
-
-    jumpPopup.classList.remove("show");
-
-});
-
-jumpPopup.onclick = (e)=>{
-
-    e.stopPropagation();
-
-};
+loadVideos();
 
 </script>
+
+</div>
 
 </body>
 </html>
