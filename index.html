@@ -196,12 +196,6 @@ button:hover{
 
 }
 
-#progress.disabled{
-
-    pointer-events:none;
-
-}
-
 .volume:hover #volume{
 
     opacity:1;
@@ -465,8 +459,6 @@ const jumpPopup = document.getElementById("jumpPopup");
 const jumpInput = document.getElementById("jumpInput");
 const jumpGo = document.getElementById("jumpGo");
 
-const volumeContainer = document.querySelector(".volume");
-
 let hideTimer;
 
 function showUI(){
@@ -589,18 +581,6 @@ video.ontimeupdate=()=>{
     `${format(video.currentTime)} / ${format(video.duration)}`;
 
 }
-
-volumeContainer.addEventListener("mouseenter",()=>{
-
-    progress.classList.add("disabled");
-
-});
-
-volumeContainer.addEventListener("mouseleave",()=>{
-
-    progress.classList.remove("disabled");
-
-});
 
 video.addEventListener("click", () => {
 
