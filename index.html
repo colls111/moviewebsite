@@ -240,17 +240,49 @@ body{
 
 <script>
 
+function formatTime(seconds){
+
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+
+    return `${mins}:${secs.toString().padStart(2,"0")}`;
+
+}
+
+const API_URL = "https://movie-backend-smoky.vercel.app/api/videos";
+
 async function loadVideos() {
 
     const grid = document.getElementById("videoGrid");
 
     try {
 
-        const response = await fetch(
-            "https://movie-backend-smoky.vercel.app/api/videos"
-        );
+        let videos;
 
-        const videos = await response.json();
+        // Use cached videos if available
+        const cached = sessionStorage.getItem("videos");
+
+        if (cached) {
+
+            videos = JSON.parse(cached);
+
+            console.log("Loaded videos from cache.");
+
+        } else {
+
+            const response = await fetch(API_URL);
+
+            videos = await response.json();
+
+            // Save for the rest of the session
+            sessionStorage.setItem(
+                "videos",
+                JSON.stringify(videos)
+            );
+
+            console.log("Downloaded videos from API.");
+
+        }
 
         grid.innerHTML = "";
 
@@ -273,7 +305,7 @@ async function loadVideos() {
                     }
 
                     <div class="duration">
-                        ${video.duration ?? ""}
+                        ${formatTime(video.duration)}
                     </div>
 
                 </div>
