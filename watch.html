@@ -328,6 +328,35 @@ button:hover{
 
 }
 
+.center-icon{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%) scale(.8);
+
+    font-size:90px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+.center-icon.show{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
 </style>
 
 </head>
@@ -345,6 +374,8 @@ button:hover{
 <source src="https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/How%20Much%20Does%20It%20Cost%20Dexter%20To%20Kill%20One%20Person.mp4">
 
 </video>
+
+<div id="centerIcon" class="center-icon">▶️</div>
 
 <div class="bottom">
 
@@ -437,10 +468,15 @@ document.addEventListener("keydown", (e) => {
         case "k":
             e.preventDefault();
 
-            if (video.paused)
+            if (video.paused) {
                 video.play();
-            else
+                showCenterIcon("▶️");
+            } 
+            else {
                 video.pause();
+                showCenterIcon("⏸️");
+            }
+                
 
             break;
 
@@ -519,6 +555,8 @@ const jumpGo = document.getElementById("jumpGo");
 
 const back = document.getElementById("back");
 
+const centerIcon = document.getElementById("centerIcon");
+
 let hideTimer;
 
 function showUI(){
@@ -572,6 +610,22 @@ function parseTime(text){
 
 }
 
+function showCenterIcon(icon){
+
+    centerIcon.textContent = icon;
+
+    centerIcon.classList.add("show");
+
+    clearTimeout(centerIcon.timer);
+
+    centerIcon.timer = setTimeout(()=>{
+
+        centerIcon.classList.remove("show");
+
+    },350);
+
+}
+
 video.onloadedmetadata = () => {
 
     progress.max = video.duration;
@@ -615,10 +669,12 @@ play.onclick=()=>{
     if(video.paused){
 
         video.play();
+        showCenterIcon("▶️");
 
     }else{
 
         video.pause();
+        showCenterIcon("⏸️");
 
     }
 
