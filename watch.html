@@ -371,9 +371,7 @@ button:hover{
 
 <button id="back" class="back-btn">⬅️</button>
 
-<video id="video">
-
-<source src="https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/How%20Much%20Does%20It%20Cost%20Dexter%20To%20Kill%20One%20Person.mp4">
+<video id="video"></video>
 
 </video>
 
@@ -415,11 +413,7 @@ value="1">
 
 </div>
 
-<div class="center">
-
-How Much Does It Cost Dexter To Kill One Person?
-
-</div>
+<div id="videoTitle" class="center"></div>>
 
 <div class="right">
 
@@ -453,6 +447,10 @@ How Much Does It Cost Dexter To Kill One Person?
 </div>
 
 <script>
+
+document.getElementById("videoTitle").textContent = videop.title;
+
+document.title = videop.title;
 
 document.addEventListener("keydown", (e) => {
 
@@ -558,6 +556,22 @@ const jumpGo = document.getElementById("jumpGo");
 const back = document.getElementById("back");
 
 const centerIcon = document.getElementById("centerIcon");
+
+const videos = JSON.parse(sessionStorage.getItem("videos"));
+
+const id = new URLSearchParams(window.location.search).get("id");
+
+const videop = videos.find(v => v.id === id);
+
+video.src = videop.video;
+video.load();
+
+if (!videop) {
+
+    alert("Video not found.");
+    window.location.href = "index.html";
+
+}
 
 let hideTimer;
 
@@ -828,8 +842,6 @@ jumpGo.onclick = () => {
     const seconds = parseTime(jumpInput.value);
 
     if(seconds == null){
-
-        alert("Invalid time.");
 
         return;
 
