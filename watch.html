@@ -540,6 +540,15 @@ const videop = videos.find(v => v.id === id);
 
 const progressKey = `progress-${videop.id}`;
 
+const savedVolume = localStorage.getItem(volumeKey);
+
+if (savedVolume !== null) {
+
+    lastVolume = Number(savedVolume);
+    setVolume(lastVolume);
+
+}
+
 document.getElementById("videoTitle").textContent = videop.title;
 
 document.title = videop.title;
@@ -661,7 +670,7 @@ function setVolume(value) {
     volume.value = value;
 
     mute.textContent = value === 0 ? "🔇" : "🔊";
-
+    localStorage.setItem("player-volume", value);
 }
 
 function toggleMute() {
