@@ -540,7 +540,7 @@ const videop = videos.find(v => v.id === id);
 
 const progressKey = `progress-${videop.id}`;
 
-const savedVolume = localStorage.getItem(volumeKey);
+const savedVolume = localStorage.getItem("player-volume");
 
 if (savedVolume !== null) {
 
