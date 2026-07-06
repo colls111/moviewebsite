@@ -467,10 +467,12 @@ document.addEventListener("keydown", (e) => {
             if (video.paused) {
                 video.play();
                 showCenterIcon("▶️");
+                saveProgress();
             } 
             else {
                 video.pause();
                 showCenterIcon("⏸️");
+                saveProgress();
             }
                 
 
@@ -497,12 +499,14 @@ document.addEventListener("keydown", (e) => {
         case "arrowleft":
             e.preventDefault();
             video.currentTime = Math.max(0, video.currentTime - 10);
+            saveProgress();
             break;
 
         // Forward 10s
         case "arrowright":
             e.preventDefault();
             video.currentTime = Math.min(video.duration, video.currentTime + 10);
+            saveProgress();
             break;
 
         // Volume Up
@@ -558,6 +562,8 @@ const videos = JSON.parse(sessionStorage.getItem("videos"));
 const id = new URLSearchParams(window.location.search).get("id");
 
 const videop = videos.find(v => v.id === id);
+
+const progressKey = `progress-${videop.id}`;
 
 document.getElementById("videoTitle").textContent = videop.title;
 
@@ -651,6 +657,19 @@ video.onloadedmetadata = () => {
 
     progress.max = video.duration;
 
+    const savedTime = localStorage.getItem(progressKey);
+
+    if (savedTime) {
+
+        const seconds = Number(savedTime);
+
+        // Don't resume if they were basically at the end
+        if (seconds < video.duration - 10) {
+            video.currentTime = seconds;
+        }
+
+    }
+
 };
 
 back.onclick = () => {
@@ -685,6 +704,20 @@ function format(seconds){
 
 }
 
+function saveProgress() {
+    localStorage.setItem(progressKey, video.currentTime);
+}
+
+video.addEventListener("pause", saveProgress);
+
+window.addEventListener("beforeunload", saveProgress);
+
+video.addEventListener("ended", () => {
+    localStorage.removeItem(progressKey);
+});
+
+progress.addEventListener("change", saveProgress);
+
 play.onclick=()=>{
 
     if(video.paused){
@@ -705,13 +738,13 @@ video.onpause=()=>play.textContent="▶️";
 rewind.onclick=()=>{
 
     video.currentTime=Math.max(0,video.currentTime-10);
-
+    saveProgress();
 }
 
 forward.onclick=()=>{
 
     video.currentTime=Math.min(video.duration,video.currentTime+10);
-
+    saveProgress();
 }
 
 video.ontimeupdate=()=>{
@@ -872,6 +905,14 @@ jumpPopup.onclick = (e)=>{
     e.stopPropagation();
 
 };
+
+setInterval(() => {
+
+    if (!video.paused) {
+        saveProgress();
+    }
+
+}, 15000);
 
 </script>
 
