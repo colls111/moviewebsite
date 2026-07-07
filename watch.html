@@ -423,6 +423,49 @@ button:hover{
 
 }
 
+/* All sliders */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px; /* Increase this */
+    background: #666;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+/* Chrome/Edge/Safari track */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 8px; /* Increase this */
+    background: #666;
+    border-radius: 999px;
+}
+
+/* Chrome/Edge/Safari thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    margin-top: -4px; /* Centers thumb on an 8px track */
+}
+
+/* Firefox track */
+input[type="range"]::-moz-range-track {
+    height: 8px;
+    background: #666;
+    border-radius: 999px;
+}
+
+/* Firefox thumb */
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+}
+
 </style>
 
 </head>
