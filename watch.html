@@ -694,7 +694,10 @@ document.addEventListener("click",()=>{
     jumpPopup.classList.remove("show");
 });
 
-video.onloadedmetadata = loadProgress;
+video.onloadedmetadata = () => {
+    loadProgress();
+    updateSlider(progress);
+};
 
 video.addEventListener("pause",()=>{
 
@@ -711,7 +714,7 @@ video.addEventListener("ended", () => {
 video.ontimeupdate=()=>{
 
     progress.value = video.currentTime;
-
+    updateSlider(progress);
     time.textContent=
     `${format(video.currentTime)} / ${format(video.duration)}`;
 
@@ -996,6 +999,9 @@ function loadProgress() {
     if (!isNaN(savedTime) && savedTime < video.duration - 10) {
         video.currentTime = savedTime;
     }
+
+    progress.value = video.currentTime;
+    updateSlider(progress);
 }
 
 function format(seconds){
