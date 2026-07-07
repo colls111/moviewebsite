@@ -448,6 +448,7 @@ value="1">
 
 <script>
 
+//CONSTANTS --------------------
 const video = document.getElementById("video");
 const progress = document.getElementById("progress");
 const fullscreen = document.getElementById("fullscreen");
@@ -470,8 +471,9 @@ const jumpGo = document.getElementById("jumpGo");
 
 const centerIcon = document.getElementById("centerIcon");
 
+const captions = document.getElementById("captions");
 
-
+//VARIABLES ----------------
 const videos = JSON.parse(sessionStorage.getItem("videos"));
 const id = new URLSearchParams(window.location.search).get("id");
 const videop = videos.find(v => v.id === id);
@@ -482,7 +484,163 @@ let lastVolume = 1;
 let hideTimer;
 let captionsEnabled = false;
 
+
+//INIT ----------------
 initPlayer();
+
+
+//EVENT LISTENERS --------------
+document.addEventListener("keydown", (e) => {
+
+    showUI();
+
+    if (e.target.tagName === "INPUT")
+        return;
+
+
+    switch (e.key.toLowerCase()) {
+
+        // Play / Pause
+        case " ":
+        case "k":
+            e.preventDefault();
+            togglePlay();
+            break;
+
+        // Fullscreen
+        case "f":
+            e.preventDefault();
+            toggleFullscreen();
+            break;
+
+        // Mute
+        case "m":
+            e.preventDefault();
+            toggleMute();
+            break;
+
+        // Rewind 10s
+        case "arrowleft":
+            e.preventDefault();
+            skip(-10)
+            break;
+
+        // Forward 10s
+        case "arrowright":
+            e.preventDefault();
+            skip(10)
+            break;
+
+        // Volume Up
+        case "arrowup":
+            e.preventDefault();
+            setVolume(video.volume + .05);
+            break;
+
+        // Volume Down
+        case "arrowdown":
+            e.preventDefault();
+            setVolume(video.volume + .05);
+            break;
+    }
+});
+
+document.addEventListener("click",()=>{
+
+    jumpPopup.classList.remove("show");
+
+});
+
+video.onloadedmetadata = () => {
+
+    progress.max = video.duration;
+
+    const savedTime = localStorage.getItem(progressKey);
+
+    if (savedTime) {
+
+        const seconds = Number(savedTime);
+
+        if (seconds < video.duration - 10) {
+            video.currentTime = seconds;
+        }
+    }
+};
+
+video.addEventListener("pause",()=>{
+
+    clearTimeout(hideTimer);
+
+    player.classList.remove("hide-ui");
+
+});
+
+video.addEventListener("ended", () => {
+    localStorage.removeItem(progressKey);
+});
+
+video.ontimeupdate=()=>{
+
+    progress.value = video.currentTime;
+
+    time.textContent=
+    `${format(video.currentTime)} / ${format(video.duration)}`;
+
+}
+
+video.addEventListener("pause", saveProgress);
+video.addEventListener("play", showUI);
+video.addEventListener("click", togglePlay);
+video.addEventListener("dblclick", toggleFullscreen);
+
+player.addEventListener("mousemove", showUI);
+player.addEventListener("mouseenter", showUI);
+
+progress.addEventListener("change", saveProgress);
+
+window.addEventListener("beforeunload", saveProgress);
+
+jumpInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        jumpToTime();
+    }
+});
+
+//EVENT FUNCTIONS ------------------------------
+video.onplay=()=>play.textContent="⏸️";
+video.onpause=()=>play.textContent="▶️";
+
+play.onclick = togglePlay();
+back.onclick = () => {window.location.href = "index.html";};
+fullscreen.onclick=()=>toggleFullscreen();
+
+progress.oninput = () => {video.currentTime = progress.value;};
+rewind.onclick = () => skip(-10);
+forward.onclick = () => skip(10);
+
+volume.oninput = () => setVolume(Number(volume.value));
+mute.onclick = () => toggleMute();
+
+captions.onclick = () => toggleCaptions();
+
+jumpTime.onclick = (e) => {
+
+    e.stopPropagation();
+
+    jumpPopup.classList.toggle("show");
+
+    if(jumpPopup.classList.contains("show")){
+
+        jumpInput.focus();
+        jumpInput.select();
+
+    }
+
+};
+
+jumpGo.onclick = jumpToTime();
+
+jumpPopup.onclick = (e)=>{e.stopPropagation();};
 
 function showUI(){
 
@@ -562,6 +720,13 @@ function togglePlay() {
     }
 
     saveProgress();
+}
+
+function toggleCaptions() {
+
+    captionsEnabled = !captionsEnabled;
+    
+    captions.classList.toggle("active", captionsEnabled);
 }
 
 function skip(seconds){
@@ -673,103 +838,6 @@ function loadProgress() {
 
 }
 
-video.onloadedmetadata = () => {
-
-    progress.max = video.duration;
-
-    const savedTime = localStorage.getItem(progressKey);
-
-    if (savedTime) {
-
-        const seconds = Number(savedTime);
-
-        // Don't resume if they were basically at the end
-        if (seconds < video.duration - 10) {
-            video.currentTime = seconds;
-        }
-
-    }
-
-};
-
-document.addEventListener("keydown", (e) => {
-
-    showUI();
-
-    // Ignore shortcuts while typing in an input
-    if (e.target.tagName === "INPUT")
-        return;
-
-
-    switch (e.key.toLowerCase()) {
-
-        // Play / Pause
-        case " ":
-        case "k":
-            e.preventDefault();
-            togglePlay();
-            break;
-
-        // Fullscreen
-        case "f":
-            e.preventDefault();
-            toggleFullscreen();
-            break;
-
-        // Mute
-        case "m":
-            e.preventDefault();
-            toggleMute();
-            break;
-
-        // Rewind 10s
-        case "arrowleft":
-            e.preventDefault();
-            skip(-10)
-            break;
-
-        // Forward 10s
-        case "arrowright":
-            e.preventDefault();
-            skip(10)
-            break;
-
-        // Volume Up
-        case "arrowup":
-            e.preventDefault();
-            setVolume(video.volume + .05);
-            break;
-
-        // Volume Down
-        case "arrowdown":
-            e.preventDefault();
-            setVolume(video.volume + .05);
-            break;
-
-    }
-
-});
-
-back.onclick = () => {
-
-    window.location.href = "index.html";
-
-};
-
-player.addEventListener("mousemove",showUI);
-
-player.addEventListener("mouseenter",showUI);
-
-video.addEventListener("play",showUI);
-
-video.addEventListener("pause",()=>{
-
-    clearTimeout(hideTimer);
-
-    player.classList.remove("hide-ui");
-
-});
-
 function format(seconds){
 
     if(isNaN(seconds)) return "0:00";
@@ -786,117 +854,23 @@ function saveProgress() {
     localStorage.setItem(progressKey, video.currentTime);
 }
 
-video.addEventListener("pause", saveProgress);
-
-window.addEventListener("beforeunload", saveProgress);
-
-video.addEventListener("ended", () => {
-    localStorage.removeItem(progressKey);
-});
-
-progress.addEventListener("change", saveProgress);
-
-video.onplay=()=>play.textContent="⏸️";
-video.onpause=()=>play.textContent="▶️";
-
-rewind.onclick = () => skip(-10);
-forward.onclick = () => skip(10);
-
-video.ontimeupdate=()=>{
-
-    progress.value = video.currentTime;
-
-    time.textContent=
-    `${format(video.currentTime)} / ${format(video.duration)}`;
-
-}
-
-play.onclick = togglePlay;
-
-video.addEventListener("click", togglePlay);
-video.addEventListener("dblclick", toggleFullscreen);
-
-progress.oninput = () => {
-
-    video.currentTime = progress.value;
-
-}
-
-volume.oninput = () => setVolume(Number(volume.value));
-
-
-mute.onclick = () => toggleMute();
-
-fullscreen.onclick=()=>toggleFullscreen();
-
-jumpInput.addEventListener("keydown",e=>{
-
-    if(e.key == "Enter"){
-
-        jumpGo.click();
-
-    }
-
-});
-
-const captions = document.getElementById("captions");
-
-
-captions.onclick = () => {
-
-    captionsEnabled = !captionsEnabled;
-
-    captions.classList.toggle("active", captionsEnabled);
-
-    // Eventually turn subtitles on/off here
-
-};
-
-jumpTime.onclick = (e) => {
-
-    e.stopPropagation();
-
-    jumpPopup.classList.toggle("show");
-
-    if(jumpPopup.classList.contains("show")){
-
-        jumpInput.focus();
-        jumpInput.select();
-
-    }
-
-};
-
-jumpGo.onclick = () => {
+function jumpToTime() {
 
     const seconds = parseTime(jumpInput.value);
 
-    if(seconds == null){
-
+    if (seconds == null)
         return;
 
-    }
-
     video.currentTime = Math.min(
-        Math.max(seconds,0),
+        Math.max(seconds, 0),
         video.duration
     );
 
-    jumpPopup.classList.remove("show");
-
-};
-
-document.addEventListener("click",()=>{
+    saveProgress();
 
     jumpPopup.classList.remove("show");
 
-});
-
-jumpPopup.onclick = (e)=>{
-
-    e.stopPropagation();
-
-};
+}
 
 setInterval(() => {
 
