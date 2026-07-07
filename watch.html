@@ -417,6 +417,23 @@ value="1">
 
 <div class="right">
 
+    <div class="speed-container">
+
+        <button id="speed">⏩</button>
+
+        <div id="speedPopup" class="jump-popup">
+
+            <input
+                id="speedInput"
+                type="text"
+                placeholder="1.25">
+
+            <button id="speedGo">Go</button>
+
+        </div>
+
+    </div>
+
     <div class="jump-container">
 
         <button id="jumpTime">🕒</button>
@@ -435,7 +452,6 @@ value="1">
     </div>
 
     <button id="captions">CC</button>
-    <button id="speed">⏩</button>
     <button id="fullscreen">⛶</button>
 
 </div>
@@ -460,7 +476,6 @@ const play = document.getElementById("play");
 const rewind = document.getElementById("rewind");
 const forward = document.getElementById("forward");
 const back = document.getElementById("back");
-const speed = document.getElementById("speed");
 
 const mute = document.getElementById("mute");
 const volume = document.getElementById("volume");
@@ -469,6 +484,11 @@ const jumpTime = document.getElementById("jumpTime");
 const jumpPopup = document.getElementById("jumpPopup");
 const jumpInput = document.getElementById("jumpInput");
 const jumpGo = document.getElementById("jumpGo");
+
+const speed = document.getElementById("speed");
+const speedPopup = document.getElementById("speedPopup");
+const speedInput = document.getElementById("speedInput");
+const speedGo = document.getElementById("speedGo");
 
 const centerIcon = document.getElementById("centerIcon");
 
@@ -595,6 +615,14 @@ jumpInput.addEventListener("keydown", (e) => {
     }
 });
 
+speedInput.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Enter"){
+        setPlaybackSpeed();
+    }
+
+});
+
 //EVENT FUNCTIONS ------------------------
 video.onplay=()=>play.textContent="⏸️";
 video.onpause=()=>play.textContent="▶️";
@@ -632,6 +660,21 @@ jumpTime.onclick = (e) => {
     }
 };
 
+speedPopup.onclick = (e)=>e.stopPropagation();
+speedGo.onclick = setPlaybackSpeed;
+speed.onclick = (e)=>{
+
+    e.stopPropagation();
+
+    speedPopup.classList.toggle("show");
+
+    if(speedPopup.classList.contains("show")){
+
+        speedInput.focus();
+        speedInput.select();
+
+    }
+};
 
 //FUNCTIONS ------------------------
 function initPlayer() {
@@ -642,6 +685,10 @@ function initPlayer() {
         window.location.href = "index.html";
         return;
 
+    }
+
+    if(!isNaN(savedSpeed)){
+        video.playbackRate = savedSpeed;
     }
 
     document.getElementById("videoTitle").textContent = videop.title;
@@ -697,19 +744,21 @@ function jumpToTime() {
     jumpPopup.classList.remove("show");
 }
 
-function togglePlaybackSpeed() {
+function setPlaybackSpeed(){
 
-    const speeds = [1, 1.25, 1.5, 1.75, 2];
+    const rate = Number(speedInput.value);
 
-    const current = speeds.indexOf(playbackSpeed);
+    if(isNaN(rate))
+        return;
 
-    playbackSpeed = speeds[(current + 1) % speeds.length];
+    video.playbackRate = Math.min(4, Math.max(.25, rate));
 
-    video.playbackRate = playbackSpeed;
+    localStorage.setItem(
+        "player-speed",
+        video.playbackRate
+    );
 
-    speed.textContent = `${playbackSpeed}×`;
-
-    localStorage.setItem("player-speed", playbackSpeed);
+    speedPopup.classList.remove("show");
 }
 
 function showUI(){
