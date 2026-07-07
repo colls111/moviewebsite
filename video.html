@@ -223,38 +223,62 @@ body{
 
         <div id="thumbnail" class="thumbnail"></div>
 
-        <div class="title" id="title"></div>
+        <div>
 
-        <div class="meta" id="meta"></div>
+            <div id="title" class="title"></div>
 
-        <div class="description" id="description"></div>
+            <div id="meta" class="meta"></div>
 
-        <a class="watch" id="watch">
-            ▶ Watch Now
-        </a>
+            <div id="description" class="description"></div>
+
+            <a id="watch" class="watch">
+                ▶ Watch Now
+            </a>
+
+        </div>
 
     </div>
+
 </div>
 
 <script>
-    const typeEmoji = video.type === "show" ? "📺" : "🎬";
-    const typeText = video.type === "show" ? "Show" : "Movie";
+const videos = JSON.parse(sessionStorage.getItem("videos")) || [];
 
-    document.getElementById("title").textContent = video.title;
+const id = new URLSearchParams(window.location.search).get("id");
+
+const video = videos.find(v => v.id === id);
+
+if (!video) {
+
+    alert("Video not found.");
+    window.location.href = "index.html";
+
+}
+
+const typeEmoji = video.type.toLowerCase() === "show" ? "📺" : "🎬";
+const typeText = video.type.toLowerCase() === "show" ? "Show" : "Movie";
+
+document.title = video.title;
+
+document.getElementById("title").textContent = video.title;
 
 document.getElementById("meta").textContent =
     `${typeEmoji} ${typeText} • 🕒 ${video.time} • 📅 ${video.date}`;
 
-document.getElementById("description").textContent = video.description;
+document.getElementById("description").textContent =
+    video.description;
 
-document.getElementById("watch").href = `watch.html?id=${video.id}`;
+document.getElementById("watch").href =
+    `watch.html?id=${video.id}`;
+
+const thumbnail = document.getElementById("thumbnail");
 
 if (video.thumbnail) {
-    document.getElementById("thumbnail").style.backgroundImage =
-        `url("${video.thumbnail}")`;
 
-    document.getElementById("thumbnail").style.backgroundSize = "cover";
-    document.getElementById("thumbnail").style.backgroundPosition = "center";
+    thumbnail.style.backgroundImage = `url("${video.thumbnail}")`;
+    thumbnail.style.backgroundSize = "cover";
+    thumbnail.style.backgroundPosition = "center";
+
 }
 
 </script>
