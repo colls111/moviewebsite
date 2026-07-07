@@ -435,7 +435,7 @@ value="1">
     </div>
 
     <button id="captions">CC</button>
-    
+    <button id="speed">⏩</button>
     <button id="fullscreen">⛶</button>
 
 </div>
@@ -460,6 +460,7 @@ const play = document.getElementById("play");
 const rewind = document.getElementById("rewind");
 const forward = document.getElementById("forward");
 const back = document.getElementById("back");
+const speed = document.getElementById("speed");
 
 const mute = document.getElementById("mute");
 const volume = document.getElementById("volume");
@@ -479,8 +480,10 @@ const id = new URLSearchParams(window.location.search).get("id");
 const videop = videos.find(v => v.id === id);
 const progressKey = `progress-${videop.id}`;
 const savedVolume = localStorage.getItem("player-volume");
+const savedSpeed = Number(localStorage.getItem("player-speed"));
 
 let lastVolume = 1;
+let playbackSpeed = 1;
 let hideTimer;
 let captionsEnabled = false;
 
@@ -653,37 +656,6 @@ function initPlayer() {
     });
 }
 
-function showUI(){
-
-    player.classList.remove("hide-ui");
-
-    clearTimeout(hideTimer);
-
-    if(!video.paused){
-
-        hideTimer = setTimeout(()=>{
-
-            player.classList.add("hide-ui");
-
-        },2500);
-    }
-}
-
-function showCenterIcon(icon){
-
-    centerIcon.textContent = icon;
-
-    centerIcon.classList.add("show");
-
-    clearTimeout(centerIcon.timer);
-
-    centerIcon.timer = setTimeout(()=>{
-
-        centerIcon.classList.remove("show");
-
-    },350);
-}
-
 function togglePlay() {
 
     if (video.paused) {
@@ -724,13 +696,50 @@ function jumpToTime() {
     jumpPopup.classList.remove("show");
 }
 
-function toggleFullscreen(){
+function togglePlaybackSpeed() {
 
-    if(document.fullscreenElement){
-        document.exitFullscreen();
-    }else{
-        player.requestFullscreen();
+    const speeds = [1, 1.25, 1.5, 1.75, 2];
+
+    const current = speeds.indexOf(playbackSpeed);
+
+    playbackSpeed = speeds[(current + 1) % speeds.length];
+
+    video.playbackRate = playbackSpeed;
+
+    speed.textContent = `${playbackSpeed}×`;
+
+    localStorage.setItem("player-speed", playbackSpeed);
+}
+
+function showUI(){
+
+    player.classList.remove("hide-ui");
+
+    clearTimeout(hideTimer);
+
+    if(!video.paused){
+
+        hideTimer = setTimeout(()=>{
+
+            player.classList.add("hide-ui");
+
+        },2500);
     }
+}
+
+function showCenterIcon(icon){
+
+    centerIcon.textContent = icon;
+
+    centerIcon.classList.add("show");
+
+    clearTimeout(centerIcon.timer);
+
+    centerIcon.timer = setTimeout(()=>{
+
+        centerIcon.classList.remove("show");
+
+    },350);
 }
 
 function setVolume(value) {
@@ -763,11 +772,24 @@ function toggleMute() {
     }
 }
 
+function toggleFullscreen(){
+
+    if(document.fullscreenElement){
+        document.exitFullscreen();
+    }else{
+        player.requestFullscreen();
+    }
+}
+
 function toggleCaptions() {
 
     captionsEnabled = !captionsEnabled;
     
     captions.classList.toggle("active", captionsEnabled);
+}
+
+function saveProgress() {
+    localStorage.setItem(progressKey, video.currentTime);
 }
 
 function loadVolume() {
@@ -807,10 +829,6 @@ function format(seconds){
 
     return `${mins}:${secs.toString().padStart(2,"0")}`;
 
-}
-
-function saveProgress() {
-    localStorage.setItem(progressKey, video.currentTime);
 }
 
 function parseTime(text){
