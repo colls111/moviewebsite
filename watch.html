@@ -114,6 +114,19 @@ video{
 
 }
 
+#speedPopup{
+
+    right:50%;
+    transform:translate(50%, 10px);
+
+}
+
+#speedPopup.show{
+
+    transform:translate(50%, 0);
+
+}
+
 .info{
 
     color:white;
@@ -419,7 +432,7 @@ value="1">
 
     <div class="speed-container">
 
-        <button id="speed">⏩</button>
+        <button id="speed">1x</button>
 
         <div id="speedPopup" class="jump-popup">
 
@@ -428,7 +441,7 @@ value="1">
                 type="text"
                 placeholder="1.25">
 
-            <button id="speedGo">Go</button>
+            <button id="speedGo">Set</button>
 
         </div>
 
@@ -688,8 +701,11 @@ function initPlayer() {
 
     if(!isNaN(savedSpeed)){
         video.playbackRate = savedSpeed;
+        speed.textContent = `${savedSpeed}×`;
     }
 
+    speed.textContent = `${video.playbackRate}×`;
+    
     document.getElementById("videoTitle").textContent = videop.title;
     document.title = videop.title;
 
@@ -750,7 +766,8 @@ function setPlaybackSpeed(){
     if(isNaN(rate))
         return;
 
-    video.playbackRate = Math.min(4, Math.max(.25, rate));
+    video.playbackRate = Math.min(5, Math.max(.1, rate));
+    speed.textContent = `${video.playbackRate}×`;
 
     localStorage.setItem(
         "player-speed",
