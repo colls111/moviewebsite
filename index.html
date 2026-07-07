@@ -202,7 +202,28 @@ body{
     font-size:16px;
     margin-top:10px;
 }
-    
+
+.continue-row{
+
+    display:flex;
+    gap:20px;
+
+    overflow-x:auto;
+
+    padding-bottom:12px;
+
+    margin-bottom:40px;
+
+    scrollbar-width:none;
+
+}
+
+.continue-row::-webkit-scrollbar{
+
+    display:none;
+
+}
+
 </style>
 </head>
 
@@ -242,6 +263,10 @@ body{
         <a class="watch-btn" href="watch.html?id=dexter-cost">▶ Watch Now</a>
     </div>
 
+    <h2 class="section-title">Continue Watching</h2>
+
+    <div class="continue-row" id="continueRow"></div>
+
     <h2 class="section-title">All Content</h2>
 
     <div class="grid" id="videoGrid"></div>
@@ -254,6 +279,61 @@ function formatTime(seconds){
     const secs = seconds % 60;
 
     return `${mins}:${secs.toString().padStart(2,"0")}`;
+
+}
+
+function loadContinueWatching(videos){
+
+    const row =
+        document.getElementById("continueRow");
+
+    row.innerHTML = "";
+
+    videos.forEach(video => {
+
+        const progress = Number(
+            localStorage.getItem(`progress-${video.id}`)
+        );
+
+        if(
+            isNaN(progress) ||
+            progress <= 10 ||
+            progress >= video.duration - 10
+        ){
+            return;
+        }
+
+        const card = document.createElement("a");
+
+        card.className = "card";
+
+        card.href = `watch.html?id=${video.id}`;
+
+        const percent =
+            (progress / video.duration) * 100;
+
+        card.innerHTML = `
+            <div class="thumb">
+
+                <img src="${video.thumbnail}">
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:${percent}%">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <h3>${video.title}</h3>
+        `;
+
+        row.appendChild(card);
+
+    });
 
 }
 
