@@ -136,7 +136,7 @@ body{
     display:inline-block;
     margin-top:auto;
     width:fit-content;
-    
+
     background:#4da3ff;
 
     color:white;
@@ -257,6 +257,27 @@ body{
 
     const videop = videos.find(v => v.id === id);
 
+    const typeText = videop.category === "Shows" ? "📺 Show" : "🎬 Movie";
+
+    const watch = document.getElementById("watch");
+
+    const savedProgress =
+    Number(localStorage.getItem(`progress-${videop.id}`));
+    
+    if (!isNaN(savedProgress) && savedProgress > 10) {
+
+    watch.textContent =
+        `▶ Continue Watching • ${formatTime(Math.floor(savedProgress))}`;
+
+    } else {
+
+        watch.textContent =
+            "▶ Watch Now";
+
+    }
+
+    watch.href = `watch.html?id=${videop.id}`;
+
     if (!videop) {
 
         alert("Video not found.");
@@ -279,13 +300,10 @@ body{
         videop.title;
 
     document.getElementById("meta").textContent =
-        `${videop.category === "Shows" ? "📺 Show" : "🎬 Movie"} • 🕒 ${formatTime(videop.duration)} • 📅 ${videop.date}`;
+        `${typeText} • ${videop.genre} • ${videop.subgenre} • 🕒 ${formatTime(videop.duration)} • 📅 ${videop.date}`;
 
     document.getElementById("description").textContent =
         videop.description;
-
-    document.getElementById("watch").href =
-        `watch.html?id=${videop.id}`;
 
     const thumbnail = document.getElementById("thumbnail");
 
