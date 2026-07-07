@@ -452,6 +452,15 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     background: white;
     margin-top: -4px; /* Centers thumb on an 8px track */
+    transition:transform .15s ease;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb{
+    transform:scale(1.15);
+}
+
+input[type="range"]:active::-webkit-slider-thumb{
+    transform:scale(1.2);
 }
 
 /* Firefox track */
@@ -462,12 +471,21 @@ input[type="range"]::-moz-range-track {
 }
 
 /* Firefox thumb */
-input[type="range"]::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
-    border: none;
-    border-radius: 50%;
-    background: white;
+input[type="range"]::-moz-range-thumb{
+    width:18px;
+    height:18px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    transition:transform .15s ease;
+}
+
+input[type="range"]:hover::-moz-range-thumb{
+    transform:scale(1.15);
+}
+
+input[type="range"]:active::-moz-range-thumb{
+    transform:scale(1.25);
 }
 
 </style>
