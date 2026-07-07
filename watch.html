@@ -732,10 +732,12 @@ video.addEventListener("ended", () => {
 video.ontimeupdate=()=>{
 
     progress.value = video.currentTime;
-    updateSlider(progress);
-    time.textContent=
-    `${format(video.currentTime)} / ${format(video.duration)}`;
 
+    updateSlider(progress);
+
+    time.textContent=
+
+    `${format(video.currentTime)} / ${format(video.duration)}`;
 }
 
 video.addEventListener("pause", saveProgress);
@@ -773,10 +775,8 @@ progress.oninput = () => {
 rewind.onclick = () => skip(-10);
 forward.onclick = () => skip(10);
 
-volume.oninput = () => {
-    setVolume(Number(volume.value));
-    updateSlider(volume);
-};
+volume.oninput = () => {setVolume(Number(volume.value));};
+
 mute.onclick = () => toggleMute();
 
 speedSlider.oninput = () => {
@@ -830,6 +830,7 @@ function initPlayer() {
 
     loadVolume();
     loadPlaybackSpeed();
+    
     updateSlider(progress);
     updateSlider(volume);
     updateSlider(speedSlider);
@@ -918,6 +919,7 @@ function setVolume(value) {
     video.muted = value === 0;
 
     volume.value = value;
+    updateSlider(volume);
 
     mute.textContent = value === 0 ? "🔇" : "🔊";
 
