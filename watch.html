@@ -557,6 +557,20 @@ const captions = document.getElementById("captions");
 const speed = document.getElementById("speed");
 const speedSlider = document.getElementById("speedSlider");
 const speedDisplay = document.getElementById("speedDisplay");
+const speeds = [
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.25,
+    1.5,
+    1.75,
+    2,
+    2.5,
+    3,
+    4,
+    5
+];
 
 //VARIABLES ------------------------
 const videos = JSON.parse(sessionStorage.getItem("videos"));
@@ -697,21 +711,26 @@ mute.onclick = () => toggleMute();
 
 speedSlider.oninput = () => {
 
-    playbackSpeed = Number(speedSlider.value);
+    const value = Number(speedSlider.value);
+
+    playbackSpeed = speeds.reduce((closest, speed) => {
+
+        return Math.abs(speed - value) < Math.abs(closest - value)
+            ? speed
+            : closest;
+
+    });
+
+    speedSlider.value = playbackSpeed;
 
     video.playbackRate = playbackSpeed;
 
-    speedDisplay.textContent =
-        `${playbackSpeed.toFixed(1)}×`;
+    speedDisplay.textContent = `${playbackSpeed}×`;
 
     showSpeedDisplay();
 
-    localStorage.setItem(
-        "player-speed",
-        playbackSpeed
-    );
-
-}
+    localStorage.setItem("player-speed", playbackSpeed);
+};
 
 captions.onclick = () => toggleCaptions();
 
@@ -749,7 +768,7 @@ function initPlayer() {
 
     loadVolume();
     loadPlaybackSpeed();
-    
+
     video.play().catch(err => {
         console.log("Autoplay blocked", err);
     });
