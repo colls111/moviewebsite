@@ -426,6 +426,7 @@ button:hover{
 /* All sliders */
 input[type="range"] {
     -webkit-appearance: none;
+    -moz-appearance:none;
     appearance: none;
     height: 14px; /* Increase this */
     background: linear-gradient(to right,
@@ -463,21 +464,35 @@ input[type="range"]:active::-webkit-slider-thumb{
     transform:scale(1.15);
 }
 
-/* Firefox track */
-input[type="range"]::-moz-range-track {
-    height: 14px;
-    background: #666;
-    border-radius: 999px;
+input[type="range"]::-moz-range-track{
+
+    background:#555;
+    height:14px;
+    border:none;
+    border-radius:999px;
+
 }
 
-/* Firefox thumb */
+input[type="range"]::-moz-range-progress{
+
+    background:#4da3ff;
+    height:14px;
+    border-radius:999px;
+
+}
+
 input[type="range"]::-moz-range-thumb{
-    width:18px;
-    height:18px;
+
+    width:22px;
+    height:22px;
+
     border:none;
     border-radius:50%;
+
     background:white;
-    transition:transform .15s ease;
+
+    cursor:pointer;
+
 }
 
 input[type="range"]:hover::-moz-range-thumb{
@@ -1085,9 +1100,6 @@ function parseTime(text){
 
 function updateSlider(slider) {
 
-    if (navigator.userAgent.includes("Firefox"))
-        return;
-    
     const percent =
         ((slider.value - slider.min) /
         (slider.max - slider.min)) * 100;
