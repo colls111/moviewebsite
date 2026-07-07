@@ -428,7 +428,11 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     height: 14px; /* Increase this */
-    background: #666;
+    background: linear-gradient(to right,
+        #4da3ff 0%,
+        #4da3ff 50%,
+        #555 50%,
+        #555 100%);
     border-radius: 999px;
     cursor: pointer;
 }
@@ -741,13 +745,17 @@ fullscreen.onclick=()=>toggleFullscreen();
 
 progress.oninput = () => {
     video.currentTime = progress.value;
+    updateSlider(progress);
     saveProgress();
 };
 
 rewind.onclick = () => skip(-10);
 forward.onclick = () => skip(10);
 
-volume.oninput = () => setVolume(Number(volume.value));
+volume.oninput = () => {
+    setVolume(Number(volume.value));
+    updateSlider(volume);
+};
 mute.onclick = () => toggleMute();
 
 speedSlider.oninput = () => {
@@ -761,7 +769,7 @@ speedSlider.oninput = () => {
     speedDisplay.textContent = `${playbackSpeed}×`;
 
     showSpeedDisplay();
-
+    updateSlider(speedSlider);
     localStorage.setItem("player-speed", playbackSpeed);
 };
 
@@ -801,6 +809,9 @@ function initPlayer() {
 
     loadVolume();
     loadPlaybackSpeed();
+    updateSlider(progress);
+    updateSlider(volume);
+    updateSlider(speedSlider);
 
     video.play().catch(err => {
         console.log("Autoplay blocked", err);
@@ -1028,6 +1039,21 @@ function parseTime(text){
 
     }
     return null;
+}
+
+function updateSlider(slider) {
+
+    const percent =
+        ((slider.value - slider.min) /
+        (slider.max - slider.min)) * 100;
+
+    slider.style.background =
+        `linear-gradient(to right,
+        #4da3ff 0%,
+        #4da3ff ${percent}%,
+        #555 ${percent}%,
+        #555 100%)`;
+
 }
 
 setInterval(() => {
