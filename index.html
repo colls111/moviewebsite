@@ -224,6 +224,28 @@ body{
 
 }
 
+.progress-bar{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:4px;
+
+    background:#444;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    background:#4da3ff;
+
+}
+
 </style>
 </head>
 
@@ -403,9 +425,9 @@ async function loadVideos() {
             `;
 
             grid.appendChild(card);
-
+            loadContinueWatching(videos);
         });
-
+        
     }
 
     catch (err) {
@@ -415,11 +437,9 @@ async function loadVideos() {
         grid.innerHTML = "<p>Failed to load videos.</p>";
 
     }
-
 }
 
 loadVideos();
-
 </script>
 
 </div>
