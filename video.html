@@ -298,22 +298,10 @@ body{
 
     }
 
-    function formatTime(seconds){
-
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-
-        return `${mins}:${secs.toString().padStart(2,"0")}`;
-
-    }
-
     document.title = videop.title;
 
     document.getElementById("title").textContent =
         videop.title;
-
-    document.getElementById("meta").textContent =
-        `${typeText} • ${videop.genre} • ${videop.subgenre} • 🕒 ${formatTime(videop.duration)} • 📅 ${videop.date}`;
 
     document.getElementById("description").textContent =
         videop.description;
@@ -335,6 +323,15 @@ body{
     thumbnail.style.backgroundSize = "cover";
     thumbnail.style.backgroundPosition = "center";
 
+    function formatTime(seconds){
+
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+
+        return `${mins}:${secs.toString().padStart(2,"0")}`;
+
+    }
+    
 </script>
 </body>
 </html>
