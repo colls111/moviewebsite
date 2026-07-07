@@ -194,7 +194,7 @@ button:hover{
     position:absolute;
 
     left:50%;
-    bottom:70px;
+    bottom:75px;
 
     transform:translateX(-50%) rotate(-90deg);
 
@@ -204,14 +204,6 @@ button:hover{
     pointer-events:none;
 
     transition:.2s;
-
-    appearance:none;
-    -webkit-appearance:none;
-
-    height:8px;
-    border-radius:999px;
-
-    background:#666;
 
 }
 
@@ -230,45 +222,12 @@ button:hover{
 
 }
 
-#volume::-webkit-slider-thumb,
-#speedSlider::-webkit-slider-thumb{
-
-    -webkit-appearance:none;
-
-    width:16px;
-    height:16px;
-
-    border-radius:50%;
-
-    background:white;
-
-    cursor:pointer;
-
-}
-
-#volume::-webkit-slider-thumb,
-#speedSlider::-webkit-slider-thumb{
-
-    -webkit-appearance:none;
-
-    width:16px;
-    height:16px;
-
-    border-radius:50%;
-    background:white;
-
-    margin-top:-4px;     /* Half of track height */
-
-    cursor:pointer;
-
-}
-
 #speedSlider{
 
     position:absolute;
 
     left:50%;
-    bottom:70px;
+    bottom:75px;
 
     transform:translateX(-50%) rotate(-90deg);
 
@@ -278,14 +237,6 @@ button:hover{
     pointer-events:none;
 
     transition:.2s;
-
-    appearance:none;
-    -webkit-appearance:none;
-
-    height:8px;
-    border-radius:999px;
-
-    background:#666;
 
 }
 
@@ -753,10 +704,7 @@ progress.oninput = () => {
 rewind.onclick = () => skip(-10);
 forward.onclick = () => skip(10);
 
-volume.oninput = () => {
-    setVolume(Number(volume.value));
-    updateSlider(volume);
-};
+volume.oninput = () => setVolume(Number(volume.value));
 mute.onclick = () => toggleMute();
 
 speedSlider.oninput = () => {
@@ -770,7 +718,7 @@ speedSlider.oninput = () => {
     speedDisplay.textContent = `${playbackSpeed}×`;
 
     showSpeedDisplay();
-    updateSlider(speedSlider);
+
     localStorage.setItem("player-speed", playbackSpeed);
 };
 
@@ -854,21 +802,6 @@ function jumpToTime() {
     saveProgress();
 
     jumpPopup.classList.remove("show");
-}
-
-function updateSlider(slider) {
-
-    const percent =
-        ((slider.value - slider.min) /
-        (slider.max - slider.min)) * 100;
-
-    slider.style.background =
-        `linear-gradient(to right,
-        #1e90ff 0%,
-        #1e90ff ${percent}%,
-        #666 ${percent}%,
-        #666 100%)`;
-
 }
 
 function showUI(){
@@ -975,7 +908,6 @@ function loadVolume() {
 
     const value = Number(savedVolume);
 
-    updateSlider(volume);
     setVolume(value);
 
     if (value > 0) {
@@ -993,7 +925,7 @@ function loadPlaybackSpeed() {
     playbackSpeed = saved;
 
     video.playbackRate = playbackSpeed;
-    updateSlider(speedSlider);
+
     speedSlider.value = speeds.indexOf(playbackSpeed);
 
     speedDisplay.textContent =
