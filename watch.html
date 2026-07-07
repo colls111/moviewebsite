@@ -512,8 +512,6 @@ const videos = JSON.parse(sessionStorage.getItem("videos"));
 const id = new URLSearchParams(window.location.search).get("id");
 const videop = videos.find(v => v.id === id);
 const progressKey = `progress-${videop.id}`;
-const savedVolume = localStorage.getItem("player-volume");
-const savedSpeed = Number(localStorage.getItem("player-speed"));
 
 let lastVolume = 1;
 let playbackSpeed = 1;
@@ -699,13 +697,6 @@ function initPlayer() {
 
     }
 
-    if(!isNaN(savedSpeed)){
-        video.playbackRate = savedSpeed;
-        speed.textContent = `${savedSpeed}×`;
-    }
-
-    speed.textContent = `${video.playbackRate}×`;
-    
     document.getElementById("videoTitle").textContent = videop.title;
     document.title = videop.title;
 
@@ -713,6 +704,7 @@ function initPlayer() {
     video.load();
 
     loadVolume();
+    loadPlaybackSpeed();
 
     video.play().catch(err => {
         console.log("Autoplay blocked", err);
@@ -759,20 +751,20 @@ function jumpToTime() {
     jumpPopup.classList.remove("show");
 }
 
-function setPlaybackSpeed(){
+function setPlaybackSpeed() {
 
     const rate = Number(speedInput.value);
 
-    if(isNaN(rate))
+    if (isNaN(rate))
         return;
 
-    video.playbackRate = Math.min(5, Math.max(.1, rate));
-    speed.textContent = `${video.playbackRate}×`;
+    playbackSpeed = Math.min(5, Math.max(0.1, rate));
 
-    localStorage.setItem(
-        "player-speed",
-        video.playbackRate
-    );
+    video.playbackRate = playbackSpeed;
+
+    speed.textContent = `${playbackSpeed}×`;
+
+    localStorage.setItem("player-speed", playbackSpeed);
 
     speedPopup.classList.remove("show");
 }
@@ -856,6 +848,21 @@ function toggleCaptions() {
 
 function saveProgress() {
     localStorage.setItem(progressKey, video.currentTime);
+}
+
+function loadPlaybackSpeed() {
+
+    const savedSpeed = Number(localStorage.getItem("player-speed"));
+
+    if (isNaN(savedSpeed))
+        return;
+
+    playbackSpeed = savedSpeed;
+
+    video.playbackRate = playbackSpeed;
+
+    speed.textContent = `${playbackSpeed}×`;
+
 }
 
 function loadVolume() {
