@@ -858,6 +858,7 @@ function initPlayer() {
         video.play().catch(() => {});
     }, { once: true });
 
+    initAudio();
     loadVolume();
     loadPlaybackSpeed();
     
@@ -868,7 +869,6 @@ function initPlayer() {
     video.play().catch(err => {
         console.log("Autoplay blocked", err);
     });
-    initAudio();
 }
 
 function initAudio(){
