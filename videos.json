@@ -7,8 +7,8 @@
         "genre": "Comedy",
         "subgenre": "Adventure",
         "date": "2001",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Minc.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Monsters,_Inc..mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/Minc.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Monsters,_Inc..mp4",
         "duration": 5536
     },
     {
@@ -19,8 +19,8 @@
         "genre": "Comedy",
         "subgenre": "Thriller",
         "date": "2013",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/WOWS.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Wolf_of_Wall_Street.mp4",
+        "thumbnail": "https://media.cpodcasts.com//Thumbnails/WOWS.jpg",
+        "video": "https://media.cpodcasts.com//Movies/The_Wolf_of_Wall_Street.mp4",
         "duration": 10792
     },
     {
@@ -31,8 +31,8 @@
         "genre": "Sci-fi",
         "subgenre": "Adventure",
         "date": "2014",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/interstellar.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Interstellar.mp4",
+        "thumbnail": "https://media.cpodcasts.com//Thumbnails/interstellar.jpg",
+        "video": "https://media.cpodcasts.com//Movies/Interstellar.mp4",
         "duration": 10144
     },
     {
@@ -43,8 +43,8 @@
         "genre": "Family",
         "subgenre": "Comedy",
         "date": "2006",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/cars.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Cars.mp4",
+        "thumbnail": "https://media.cpodcasts.com//Thumbnails/cars.jpg",
+        "video": "https://media.cpodcasts.com//Movies/Cars.mp4",
         "duration": 6996
     },
     {
@@ -55,8 +55,8 @@
         "genre": "Family",
         "subgenre": "Action",
         "date": "2011",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/cars2.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Cars_2.mp4",
+        "thumbnail": "https://media.cpodcasts.com//Thumbnails/cars2.jpg",
+        "video": "https://media.cpodcasts.com//Movies/Cars_2.mp4",
         "duration": 6996
     },
     {
@@ -67,8 +67,8 @@
         "genre": "Horror",
         "subgenre": "Romance",
         "date": "2026",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/obsession.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Obsession.mp4",
+        "thumbnail": "https://media.cpodcasts.com//Thumbnails/obsession.jpg",
+        "video": "https://media.cpodcasts.com//Movies/Obsession.mp4",
         "duration": 6533
     },
     {
@@ -79,8 +79,8 @@
         "genre": "Sci-fi",
         "subgenre": "Action",
         "date": "2010",
-        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/inception.jpg",
-        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Inception.mp4",
+        "thumbnail": "https://media.cpodcasts.com//Thumbnails/inception.jpg",
+        "video": "https://media.cpodcasts.com//Movies/Inception.mp4",
         "duration": 8888
     }
 ]
