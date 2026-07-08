@@ -662,10 +662,10 @@ let hideTimer;
 let captionsEnabled = false;
 let speedTimer;
 
-const compressor = audioCtx.createDynamicsCompressor();
 let audioCtx;
 let source;
 let gainNode;
+let compressor;
 let audioInitialized = false;
 
 //INIT ------------------------
@@ -877,16 +877,17 @@ function initAudio(){
 
     if(audioCtx) return;
 
+    audioCtx = new AudioContext();
+    source = audioCtx.createMediaElementSource(video);
+    gainNode = audioCtx.createGain();
+    compressor = audioCtx.createDynamicsCompressor();
+
     compressor.threshold.value = -24;
     compressor.knee.value = 30;
     compressor.ratio.value = 12;
     compressor.attack.value = 0.003;
     compressor.release.value = 0.25;
-
-    audioCtx = new AudioContext();
-    source = audioCtx.createMediaElementSource(video);
-    gainNode = audioCtx.createGain();
-
+    
     source.connect(compressor);
     compressor.connect(gainNode);
     gainNode.connect(audioCtx.destination);
