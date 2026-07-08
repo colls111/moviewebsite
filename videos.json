@@ -34,5 +34,17 @@
         "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/interstellar.jpg",
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Interstellar.mp4",
         "duration": 10144
+    },
+    {
+        "id": "4",
+        "title": "Cars",
+        "description": "On the way to the biggest race of his life, a hotshot rookie race car gets stranded in a rundown town and learns that winning isn't everything in life.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Comedy",
+        "date": "2006",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/cars.jpg",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Cars.mp4",
+        "duration": 6996
     }
 ]
