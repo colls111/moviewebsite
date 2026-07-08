@@ -662,6 +662,11 @@ let hideTimer;
 let captionsEnabled = false;
 let speedTimer;
 
+let audioCtx;
+let source;
+let gainNode;
+let audioInitialized = false;
+
 //INIT ------------------------
 initPlayer();
 
@@ -831,11 +836,6 @@ jumpTime.onclick = (e) => {
         jumpInput.select();
     }
 };
-
-let audioCtx;
-let source;
-let gainNode;
-let audioInitialized = false;
 
 //FUNCTIONS ------------------------
 function initPlayer() {
