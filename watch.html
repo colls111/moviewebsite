@@ -504,15 +504,30 @@ input[type="range"]:active::-moz-range-thumb{
 }
 
 #captionsOverlay{
+
     position:absolute;
+
     left:50%;
-    bottom:95px;   /* directly above progress bar */
+    bottom:90px;
+
     transform:translateX(-50%);
-    color:white;
-    font-size:28px;
-    text-align:center;
+
     max-width:80%;
-    text-shadow:0 2px 6px black;
+
+    text-align:center;
+
+    font-size:40px;
+    font-weight:600;
+
+    color:white;
+
+    text-shadow:
+        2px 2px 0 black,
+       -2px 2px 0 black,
+        2px -2px 0 black,
+       -2px -2px 0 black,
+        0 0 10px black;
+
     pointer-events:none;
 }
 
@@ -652,6 +667,8 @@ const centerIcon = document.getElementById("centerIcon");
 
 const captions = document.getElementById("captions");
 const track = document.getElementById("captionTrack");
+const captionsOverlay = document.getElementById("captionsOverlay");
+const textTrack = video.textTracks[0];
 
 const speed = document.getElementById("speed");
 const speedSlider = document.getElementById("speedSlider");
@@ -766,6 +783,11 @@ video.onloadedmetadata = () => {
     captionsEnabled = localStorage.getItem("captions") === "true";
     video.textTracks[0].mode = captionsEnabled ? "showing" : "hidden";
     captions.classList.toggle("active", captionsEnabled);
+    const track = video.textTracks[0];
+
+    if (track) {
+        track.mode = "hidden";
+    }
 };
 
 video.addEventListener("pause",()=>{
@@ -807,6 +829,18 @@ jumpInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         jumpToTime();
     }
+});
+
+textTrack.addEventListener("cuechange", () => {
+
+    if (!captionsEnabled) {
+        captionsOverlay.textContent = "";
+        return;
+    }
+
+    const cue = textTrack.activeCues[0];
+
+    captionsOverlay.textContent = cue ? cue.text : "";
 });
 
 //EVENT FUNCTIONS ------------------------
@@ -1052,7 +1086,10 @@ function toggleCaptions() {
     const track = video.textTracks[0];
 
     if (track) {
-        track.mode = captionsEnabled ? "showing" : "hidden";
+        track.mode = "hidden";
+
+        captionsOverlay.style.display =
+        captionsEnabled ? "block" : "none";
     }
 
     captions.classList.toggle("active", captionsEnabled);
