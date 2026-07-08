@@ -860,7 +860,7 @@ function initPlayer() {
         video.play().catch(() => {});
     }, { once: true });
 
-    initAudio();
+    //initAudio();
     loadVolume();
     loadPlaybackSpeed();
     
@@ -968,7 +968,7 @@ function setVolume(value) {
 
     value = Math.max(0, Math.min(1, value));
 
-    gainNode.gain.value = value * 2;
+    video.volume = value;
     video.muted = value === 0;
 
     volume.value = value;
