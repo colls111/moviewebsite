@@ -967,7 +967,7 @@ function setVolume(value) {
 
     value = Math.max(0, Math.min(1, value));
 
-    gainNode.gain.value = value * 2;
+    gainNode.gain.value = value * 3;
     video.muted = value === 0;
 
     volume.value = value;
