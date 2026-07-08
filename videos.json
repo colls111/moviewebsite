@@ -28,5 +28,17 @@
         "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/dexter.jpg",
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/MU.mp4",
         "duration": 5535
+    },
+    {
+        "id": "ob",
+        "title": "Obession",
+        "description": "girl",
+        "category": "Movies",
+        "genre": "Drama",
+        "subgenre": "Psychological",
+        "date": "July",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/dexter.jpg",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Obsession-480P.mp4",
+        "duration": 6533
     }
 ]
