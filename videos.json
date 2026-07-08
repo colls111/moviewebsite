@@ -70,5 +70,17 @@
         "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/obsession.jpg",
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Obsession.mp4",
         "duration": 6533
+    },
+    {
+        "id": "7",
+        "title": "Inception",
+        "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO, but his tragic past may doom the project and his team to disaster.",
+        "category": "Movies",
+        "genre": "Sci-fi",
+        "subgenre": "Action",
+        "date": "2010",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/inception.jpg",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Inception.mp4",
+        "duration": 8888
     }
 ]
