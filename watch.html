@@ -515,7 +515,15 @@ input[type="range"]:active::-moz-range-thumb{
 
 <button id="back" class="back-btn">⬅️</button>
 
-<video id="video" preload="auto"></video>
+<video id="video" preload="auto">
+    <track
+        id="captionTrack"
+        kind="subtitles"
+        srclang="en"
+        label="English"
+        src=""
+        default>
+</video>
 
 </video>
 
@@ -631,6 +639,7 @@ const jumpGo = document.getElementById("jumpGo");
 const centerIcon = document.getElementById("centerIcon");
 
 const captions = document.getElementById("captions");
+const track = document.getElementById("captionTrack");
 
 const speed = document.getElementById("speed");
 const speedSlider = document.getElementById("speedSlider");
@@ -855,6 +864,10 @@ function initPlayer() {
     video.src = videop.video;
     video.load();
 
+    if (videop.captions) {
+        track.src = videop.captions;
+    }
+
     video.addEventListener("canplay", () => {
         video.play().catch(() => {});
     }, { once: true });
@@ -1020,7 +1033,13 @@ function toggleFullscreen(){
 function toggleCaptions() {
 
     captionsEnabled = !captionsEnabled;
-    
+
+    const track = video.textTracks[0];
+
+    if (track) {
+        track.mode = captionsEnabled ? "showing" : "hidden";
+    }
+
     captions.classList.toggle("active", captionsEnabled);
 }
 
