@@ -840,7 +840,7 @@ jumpTime.onclick = (e) => {
 
 //FUNCTIONS ------------------------
 function initPlayer() {
-
+    video.crossOrigin = "anonymous";
     if (!videop) {
 
         alert("Video not found.");
@@ -848,11 +848,10 @@ function initPlayer() {
         return;
 
     }
-
+    
     document.getElementById("videoTitle").textContent = videop.title;
     document.title = videop.title;
 
-    video.crossOrigin = "anonymous";
     video.src = videop.video;
     video.load();
 
