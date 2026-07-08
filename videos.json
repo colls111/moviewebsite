@@ -22,5 +22,17 @@
         "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/WOWS.jpg",
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Wolf_of_Wall_Street.mp4",
         "duration": 10792
+    },
+    {
+        "id": "3",
+        "title": "Interstellar",
+        "description": "In a dystopian future where Earth has become near-uninhabitable, a team of astronauts embark on a mission to find a new home for humanity.",
+        "category": "Movies",
+        "genre": "Sci-fi",
+        "subgenre": "Adventure",
+        "date": "2014",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/interstellar.jpg",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Interstellar.mp4",
+        "duration": 10144
     }
 ]
