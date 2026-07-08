@@ -58,5 +58,17 @@
         "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/cars2.jpg",
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Cars_2.mp4",
         "duration": 6996
+    },
+    {
+        "id": "6",
+        "title": "Obsession",
+        "description": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for, but he soon discovers that some desires come at a dark, sinister price.",
+        "category": "Movies",
+        "genre": "Horror",
+        "subgenre": "Romance",
+        "date": "2026",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/obsession.jpg",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Obsession.mp4",
+        "duration": 6533
     }
 ]
