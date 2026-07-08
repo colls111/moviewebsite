@@ -28,5 +28,17 @@
         "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/dexter.jpg",
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/MU.mp4",
         "duration": 5535
+    },
+    {
+        "id": "github-api-test",
+        "title": "GitHub API Test",
+        "description": "This movie was added by the GitHub API test.",
+        "category": "Movies",
+        "genre": "Test",
+        "subgenre": "Test",
+        "date": "2026",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/test.png",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/test.mp4",
+        "duration": 123
     }
 ]
