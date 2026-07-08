@@ -19,8 +19,8 @@
         "genre": "Comedy",
         "subgenre": "Thriller",
         "date": "2013",
-        "thumbnail": "https://media.cpodcasts.com//Thumbnails/WOWS.jpg",
-        "video": "https://media.cpodcasts.com//Movies/The_Wolf_of_Wall_Street.mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/WOWS.jpg",
+        "video": "https://media.cpodcasts.com/Movies/The_Wolf_of_Wall_Street.mp4",
         "duration": 10792
     },
     {
@@ -31,8 +31,8 @@
         "genre": "Sci-fi",
         "subgenre": "Adventure",
         "date": "2014",
-        "thumbnail": "https://media.cpodcasts.com//Thumbnails/interstellar.jpg",
-        "video": "https://media.cpodcasts.com//Movies/Interstellar.mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/interstellar.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Interstellar.mp4",
         "duration": 10144
     },
     {
@@ -43,8 +43,8 @@
         "genre": "Family",
         "subgenre": "Comedy",
         "date": "2006",
-        "thumbnail": "https://media.cpodcasts.com//Thumbnails/cars.jpg",
-        "video": "https://media.cpodcasts.com//Movies/Cars.mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Cars.mp4",
         "duration": 6996
     },
     {
@@ -55,8 +55,8 @@
         "genre": "Family",
         "subgenre": "Action",
         "date": "2011",
-        "thumbnail": "https://media.cpodcasts.com//Thumbnails/cars2.jpg",
-        "video": "https://media.cpodcasts.com//Movies/Cars_2.mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars2.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Cars_2.mp4",
         "duration": 6996
     },
     {
@@ -67,8 +67,8 @@
         "genre": "Horror",
         "subgenre": "Romance",
         "date": "2026",
-        "thumbnail": "https://media.cpodcasts.com//Thumbnails/obsession.jpg",
-        "video": "https://media.cpodcasts.com//Movies/Obsession.mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/obsession.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Obsession.mp4",
         "duration": 6533
     },
     {
@@ -79,8 +79,8 @@
         "genre": "Sci-fi",
         "subgenre": "Action",
         "date": "2010",
-        "thumbnail": "https://media.cpodcasts.com//Thumbnails/inception.jpg",
-        "video": "https://media.cpodcasts.com//Movies/Inception.mp4",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/inception.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Inception.mp4",
         "duration": 8888
     }
 ]
