@@ -373,7 +373,7 @@ function loadContinueWatching(videos){
 
 }
 
-const API_URL = "https://colls112.pythonanywhere.com/api/videos";
+const JSON_URL = "videos.json";
 
 async function loadVideos() {
 
@@ -394,8 +394,7 @@ async function loadVideos() {
 
         } else {
 
-            const response = await fetch(API_URL);
-
+            const response = await fetch(JSON_URL);
             videos = await response.json();
 
             // Save for the rest of the session
@@ -439,9 +438,8 @@ async function loadVideos() {
             `;
 
             grid.appendChild(card);
-            loadContinueWatching(videos);
         });
-        
+        loadContinueWatching(videos);
     }
 
     catch (err) {
