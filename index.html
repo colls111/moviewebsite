@@ -204,8 +204,8 @@ body{
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:22px;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:24px;
 }
 
 .card{
@@ -218,23 +218,19 @@ body{
 }
 
 .thumb{
+    width:100%;
+    aspect-ratio:16/9;
 
-    height:125px;
+    border-radius:14px;
 
     background:linear-gradient(
         135deg,
         #2a2a2a,
-        #3a3a3a
+        #3d3d3d
     );
 
-    border-radius:12px;
-
     position:relative;
-
     overflow:hidden;
-
-    transition:.2s;
-
 }
 
 .thumb img{
@@ -254,8 +250,8 @@ body{
 }
 
 .card h3{
-    font-size:16px;
-    margin-top:10px;
+    margin-top:12px;
+    font-size:18px;
 }
 
 .continue-row{
