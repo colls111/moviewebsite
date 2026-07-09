@@ -394,22 +394,19 @@ body{
 }
 
 .clear-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
 
     background:none;
     border:none;
 
     color:#8db9ff;
 
-    font:inherit;
     font-size:18px;
     font-weight:bold;
 
     cursor:pointer;
-
-    transition:.2s;
-
-    padding:0;
-
 }
 
 .clear-btn:hover{
@@ -474,7 +471,8 @@ body{
         </h2>
 
         <button class="clear-btn" onclick="clearContinueWatching()">
-            🗑️ Clear
+            <span class="icon">🗑️</span>
+            <span class="text">Clear</span>
         </button>
 
     </div>
