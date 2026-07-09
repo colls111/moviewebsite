@@ -38,10 +38,23 @@ body{
 }
 
 .header{
-    padding:24px 40px;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    gap:30px;
+
+    padding:18px 40px;
+
+    background:rgba(8,12,18,.92);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo,
@@ -332,10 +345,17 @@ body{
     <div style="display:flex;align-items:center;gap:40px;">
 
         <a href="index.html" class="logo">
-
-            🎬 C's Movies
-
+            <img src="logo.png" alt="">
+            <span>C's Movies</span>
         </a>
+
+        <div class="search-box">
+            <span>🔍</span>
+            <input
+                class="search"
+                type="text"
+                placeholder="Search movies and shows...">
+        </div>
 
         <nav class="nav">
 
@@ -346,8 +366,6 @@ body{
         </nav>
 
     </div>
-
-    <input class="search" placeholder="🔎 Search content">
 
 </div>
 
