@@ -1082,10 +1082,10 @@ function toggleCaptions() {
 
     localStorage.setItem("captions", captionsEnabled);
 
-    captions.classList.toggle("active", captionsEnabled);
-
     captionsOverlay.style.display =
         captionsEnabled ? "block" : "none";
+
+    updateCaption();
 }
 
 function saveProgress() {
@@ -1157,16 +1157,7 @@ function initcaptions() {
     if (textTrack) {
         textTrack.mode = "hidden";
 
-        textTrack.addEventListener("cuechange", () => {
-
-            if (!captionsEnabled) {
-                captionsOverlay.textContent = "";
-                return;
-            }
-
-            const cue = textTrack.activeCues[0];
-            captionsOverlay.textContent = cue ? cue.text : "";
-        });
+        textTrack.addEventListener("cuechange", updateCaption);
     }
 
     captionsEnabled = localStorage.getItem("captions") === "true";
@@ -1242,6 +1233,19 @@ function updateSlider(slider) {
         #555 ${percent}%,
         #555 100%)`;
 
+}
+
+function updateCaption() {
+
+    const track = video.textTracks[0];
+
+    if (!track || !captionsEnabled) {
+        captionsOverlay.textContent = "";
+        return;
+    }
+
+    const cue = track.activeCues[0];
+    captionsOverlay.textContent = cue ? cue.text : "";
 }
 
 setInterval(() => {
