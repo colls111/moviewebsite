@@ -383,6 +383,43 @@ body{
     right:0;
 }
 
+.section-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:16px;
+}
+
+.section-title{
+
+    margin:0;
+    font-size:22px;
+}
+
+.clear-btn{
+
+    background:none;
+    border:none;
+
+    color:#8db9ff;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.clear-btn:hover{
+
+    color:white;
+
+    transform:scale(1.05);
+}
+
 </style>
 </head>
 
@@ -426,7 +463,17 @@ body{
         <a class="watch-btn" href="watch.html?id=dexter-cost">▶ Watch Now</a>
     </div>
 
-    <h2 class="section-title">Continue Watching</h2>
+    <div class="section-header">
+
+    <h2 class="section-title">
+        Continue Watching
+        </h2>
+
+        <button class="clear-btn" onclick="clearContinueWatching()">
+            Clear
+        </button>
+
+    </div>
 
     <div class="slider-wrap">
         <button class="slider-btn left" onclick="scrollContinue(-1)">‹</button>
@@ -510,6 +557,23 @@ function loadContinueWatching(videos){
         row.appendChild(card);
 
     });
+
+}
+
+function clearContinueWatching(){
+
+    if(!confirm("Clear your Continue Watching list?")){
+        return;
+    }
+
+    const videos =
+        JSON.parse(sessionStorage.getItem("videos")) || [];
+
+    videos.forEach(video => {
+        localStorage.removeItem(`progress-${video.id}`);
+    });
+
+    loadContinueWatching(videos);
 
 }
 
