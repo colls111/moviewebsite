@@ -826,17 +826,7 @@ jumpInput.addEventListener("keydown", (e) => {
     }
 });
 
-textTrack.addEventListener("cuechange", () => {
-
-    if (!captionsEnabled) {
-        captionsOverlay.textContent = "";
-        return;
-    }
-
-    const cue = textTrack.activeCues[0];
-
-    captionsOverlay.textContent = cue ? cue.text : "";
-});
+textTrack.addEventListener("cuechange", updateCaption);
 
 //EVENT FUNCTIONS ------------------------
 video.onplay=()=>play.textContent="⏸️";
@@ -1157,7 +1147,16 @@ function initcaptions() {
     if (textTrack) {
         textTrack.mode = "hidden";
 
-        textTrack.addEventListener("cuechange", updateCaption);
+        textTrack.addEventListener("cuechange", () => {
+
+            if (!captionsEnabled) {
+                captionsOverlay.textContent = "";
+                return;
+            }
+
+            const cue = textTrack.activeCues[0];
+            captionsOverlay.textContent = cue ? cue.text : "";
+        });
     }
 
     captionsEnabled = localStorage.getItem("captions") === "true";
