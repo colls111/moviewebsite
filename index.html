@@ -420,6 +420,10 @@ body{
 
 }
 
+.content-section .section-title{
+    margin-bottom:28px;
+}
+
 </style>
 </head>
 
@@ -483,10 +487,12 @@ body{
         <button class="slider-btn right" onclick="scrollContinue(1)">›</button>
     </div>
 
-    <h2 class="section-title">All Content</h2>
+    <div class="content-section">
 
-    <div class="grid" id="videoGrid"></div>
+        <h2 class="section-title">All Content</h2>
 
+        <div class="grid" id="videoGrid"></div>
+    </div>
 <script>
 
 function formatTime(seconds){
