@@ -1071,10 +1071,11 @@ function toggleCaptions() {
     captionsEnabled = !captionsEnabled;
 
     localStorage.setItem("captions", captionsEnabled);
-
+    captions.classList.toggle("active", captionsEnabled);
+    
     captionsOverlay.style.display =
         captionsEnabled ? "block" : "none";
-
+    
     updateCaption();
 }
 
