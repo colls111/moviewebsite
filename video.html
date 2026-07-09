@@ -271,7 +271,11 @@ body{
     const savedProgress =
     Number(localStorage.getItem(`progress-${videop.id}`));
 
-    if (!isNaN(savedProgress) && savedProgress > 10) {
+    if (
+        !isNaN(savedProgress) &&
+        savedProgress >= 60 &&
+        savedProgress <= videop.duration - 600
+    ) {
 
     watch.textContent =
         `▶ Continue Watching • ${formatTime(Math.floor(savedProgress))}`;
