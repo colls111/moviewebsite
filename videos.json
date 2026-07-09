@@ -6,6 +6,15 @@
         "category": "Movies",
         "genre": "Comedy",
         "subgenre": "Adventure",
+        "tags": [
+            "monsters",
+            "disney",
+            "pixar",
+            "kids",
+            "animated",
+            "billy crystal",
+            "john goodman"
+        ],
         "date": "2001",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/Minc.jpg",
         "video": "https://media.cpodcasts.com/Movies/Monsters,_Inc..mp4",
@@ -19,6 +28,16 @@
         "category": "Movies",
         "genre": "Comedy",
         "subgenre": "Thriller",
+        "tags": [
+            "wolf",
+            "wall street",
+            "dicaprio",
+            "leonardo",
+            "jonah",
+            "hill",
+            "adult",
+            "gambling"
+        ],
         "date": "2013",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/WOWS.jpg",
         "video": "https://media.cpodcasts.com/Movies/The_Wolf_of_Wall_Street.mp4",
@@ -32,6 +51,15 @@
         "category": "Movies",
         "genre": "Sci-fi",
         "subgenre": "Adventure",
+        "tags": [
+            "space",
+            "wormhole",
+            "black hole",
+            "time",
+            "planet",
+            "christopher nolan",
+            "matthew mcconaughey"
+        ],
         "date": "2014",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/interstellar.jpg",
         "video": "https://media.cpodcasts.com/Movies/Interstellar.mp4",
@@ -45,9 +73,17 @@
         "category": "Movies",
         "genre": "Family",
         "subgenre": "Comedy",
+        "tags": [
+            "car",
+            "lightning",
+            "mcqueen",
+            "disney",
+            "pixar"
+        ],
         "date": "2006",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars.jpg",
         "video": "https://media.cpodcasts.com/Movies/Cars.mp4",
+        "captions": "https://media.cpodcasts.com/Captions/cars.vtt",
         "duration": 6996
     },
     {
@@ -57,9 +93,17 @@
         "category": "Movies",
         "genre": "Family",
         "subgenre": "Action",
+        "tags": [
+            "car",
+            "lightning",
+            "mcqueen",
+            "disney",
+            "pixar"
+        ],
         "date": "2011",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars2.jpg",
         "video": "https://media.cpodcasts.com/Movies/Cars_2.mp4",
+        "captions": "https://media.cpodcasts.com/Captions/cars 2.vtt",
         "duration": 6996
     },
     {
@@ -69,9 +113,15 @@
         "category": "Movies",
         "genre": "Horror",
         "subgenre": "Romance",
+        "tags": [
+            "obsessed",
+            "wish",
+            "mcqueen"
+        ],
         "date": "2026",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/obsession.jpg",
         "video": "https://media.cpodcasts.com/Movies/Obsession.mp4",
+        "captions": "https://media.cpodcasts.com/Captions/obsession.vtt",
         "duration": 6533
     },
     {
@@ -81,9 +131,21 @@
         "category": "Movies",
         "genre": "Sci-fi",
         "subgenre": "Action",
+        "tags": [
+            "psychological",
+            "future",
+            "time",
+            "dream",
+            "leonardo",
+            "dicaprio",
+            "murphey",
+            "cillian",
+            "christopher nolan"
+        ],
         "date": "2010",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/inception.jpg",
         "video": "https://media.cpodcasts.com/Movies/Inception.mp4",
+        "captions": "https://media.cpodcasts.com/Captions/inception.vtt",
         "duration": 8888
     }
 ]
