@@ -226,6 +226,10 @@ body{
     font-size:22px;
 }
 
+.section-header .section-title{
+    margin-top: 3px;
+}
+
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
@@ -394,19 +398,22 @@ body{
 }
 
 .clear-btn{
-    display:flex;
-    align-items:center;
-    gap:8px;
 
     background:none;
     border:none;
 
     color:#8db9ff;
 
+    font:inherit;
     font-size:18px;
     font-weight:bold;
 
     cursor:pointer;
+
+    transition:.2s;
+
+    padding:0;
+
 }
 
 .clear-btn:hover{
@@ -471,8 +478,7 @@ body{
         </h2>
 
         <button class="clear-btn" onclick="clearContinueWatching()">
-            <span class="icon">🗑️</span>
-            <span class="text">Clear</span>
+            🗑️ Clear
         </button>
 
     </div>
