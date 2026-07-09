@@ -1080,7 +1080,16 @@ function toggleCaptions() {
 }
 
 function saveProgress() {
-    localStorage.setItem(progressKey, video.currentTime);
+
+    if (
+        video.currentTime >= 60 &&
+        video.currentTime <= video.duration - 600
+    ) {
+        localStorage.setItem(progressKey, video.currentTime);
+    } else {
+        localStorage.removeItem(progressKey);
+    }
+
 }
 
 function loadVolume() {
