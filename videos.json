@@ -22,6 +22,7 @@
         "date": "2013",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/WOWS.jpg",
         "video": "https://media.cpodcasts.com/Movies/The_Wolf_of_Wall_Street.mp4",
+        "captions": "https://media.cpodcasts.com/Captions/WOWS.vtt",
         "duration": 10792
     },
     {
@@ -34,6 +35,7 @@
         "date": "2014",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/interstellar.jpg",
         "video": "https://media.cpodcasts.com/Movies/Interstellar.mp4",
+        "captions": "https://media.cpodcasts.com/Captions/Interstellar.vtt",
         "duration": 10144
     },
     {
