@@ -126,13 +126,44 @@ body{
 
 }
     
+.search-box{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    width:420px;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    background:#151d2c;
+
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.search-box span{
+
+    font-size:20px;
+    opacity:.7;
+}
+
 .search{
-    background:#151515;
-    border:1px solid #333;
-    color:white;
-    padding:10px 14px;
-    border-radius:8px;
+
+    flex:1;
+
+    background:none;
+    border:none;
     outline:none;
+
+    color:white;
+    font-size:16px;
+}
+
+.search::placeholder{
+
+    color:#7f8aa1;
 }
 
 .container{
