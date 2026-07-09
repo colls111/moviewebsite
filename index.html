@@ -419,6 +419,11 @@ body{
 
 <script>
 
+const cardWidth = document.querySelector(".grid .card")?.offsetWidth ?? 300;
+
+document.querySelectorAll(".continue-row .card").forEach(card => {
+    card.style.width = `${cardWidth}px`;
+});
 function formatTime(seconds){
         seconds = Math.floor(seconds);
 
