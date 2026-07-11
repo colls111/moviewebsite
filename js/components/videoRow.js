@@ -15,7 +15,7 @@ export function VideoRow(title, videos) {
                     ${videos.map(Card).join("")}
                 </div>
 
-                <button class="scroll-btn right">❯</button>
+                <button class="scroll-btn right"><spanR>❯</span></button>
 
             </div>
 
