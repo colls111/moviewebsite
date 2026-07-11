@@ -25,7 +25,7 @@ export function Home() {
     return `
         ${Header("home")}
 
-        <main class="container">
+        <main class="container fade-in">
 
             ${continueWatching.length > 0
                     ? VideoRow("Continue Watching", continueWatching)
