@@ -292,13 +292,17 @@ body{
 }
 
 .scroll-btn{
-
     position:absolute;
-    top:40%;
-    transform:translateY(-50%);
+    top:25%;
 
     width:46px;
     height:80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:0;
 
     border:none;
     border-radius:10px;
@@ -306,7 +310,10 @@ body{
     background:rgba(0,0,0,.55);
     color:white;
 
-    font-size:28px;
+    font-size:32px;
+    line-height:1;
+    font-family:Arial, sans-serif;
+
     cursor:pointer;
 
     opacity:0;
@@ -331,17 +338,34 @@ body{
     right:0;
 }
 
-.fade-in{
-    animation: fade .25s ease;
+.scroll-btn spanR{
+    transform:translateX(-12px);
 }
 
-@keyframes fade{
+.fade-in{
+
+    animation:pageFade .5s ease;
+
+}
+
+@keyframes pageFade{
+
     from{
+
         opacity:0;
+
+        transform:translateY(10px);
+
     }
+
     to{
+
         opacity:1;
+
+        transform:translateY(0);
+
     }
+
 }
 
 .thumbnail{
