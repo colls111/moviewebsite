@@ -1,6 +1,6 @@
 import { Card } from "./card.js";
 
-export function VideoRow(title, videos) {
+export function VideoRow(title, videos, options = {}) {
 
     return `
         <section class="video-section">
@@ -12,10 +12,10 @@ export function VideoRow(title, videos) {
                 <button class="scroll-btn left">❮</button>
 
                 <div class="video-row">
-                    ${videos.map(Card).join("")}
+                    ${videos.map(video => Card(video, options)).join("")}
                 </div>
 
-                <button class="scroll-btn right"><spanR>❯</span></button>
+                <button class="scroll-btn right">❯</button>
 
             </div>
 
