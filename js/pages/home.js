@@ -15,8 +15,8 @@ function getRecentlyAdded(videos, days = 30) {
     cutoff.setDate(cutoff.getDate() - days);
 
     return videos
-        .filter(video => new Date(video.added_date) >= cutoff)
-        .sort((a, b) => new Date(b.added_date) - new Date(a.added_date))
+        .filter(video => new Date(video.date_added) >= cutoff)
+        .sort((a, b) => new Date(b.date_added) - new Date(a.added_date))
         .slice(0, 10);
 }
 
