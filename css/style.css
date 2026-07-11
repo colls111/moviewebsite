@@ -446,6 +446,15 @@ body{
 
 }
 
+#app{
+    opacity:0;
+}
+
+#app.loaded{
+    opacity:1;
+    transition:.25s;
+}
+
 .play{
 
     width:0;
@@ -456,3 +465,4 @@ body{
     border-left:16px solid white;
 
 }
+
