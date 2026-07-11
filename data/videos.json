@@ -16,11 +16,11 @@
             "john goodman"
         ],
         "date": "2001",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/Minc.jpg",
         "video": "https://media.cpodcasts.com/Movies/Monsters,_Inc..mp4",
         "captions": "https://media.cpodcasts.com/Captions/Minc.vtt",
-        "duration": 5536,
-        "featured": false
+        "duration": 5536
     },
     {
         "id": "2",
@@ -40,12 +40,11 @@
             "gambling"
         ],
         "date": "2013",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/WOWS.jpg",
         "video": "https://media.cpodcasts.com/Movies/The_Wolf_of_Wall_Street.mp4",
         "captions": "https://media.cpodcasts.com/Captions/WOWS.vtt",
-        "duration": 10792,
-        "featured": true,
-        "featured_thumbnail": "https://media.cpodcasts.com/Thumbnails/hero WOWS2.jpg"
+        "duration": 10792
     },
     {
         "id": "3",
@@ -64,6 +63,7 @@
             "matthew mcconaughey"
         ],
         "date": "2014",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/interstellar.jpg",
         "video": "https://media.cpodcasts.com/Movies/Interstellar.mp4",
         "captions": "https://media.cpodcasts.com/Captions/Interstellar.vtt",
@@ -84,6 +84,7 @@
             "pixar"
         ],
         "date": "2006",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars.jpg",
         "video": "https://media.cpodcasts.com/Movies/Cars.mp4",
         "captions": "https://media.cpodcasts.com/Captions/cars.vtt",
@@ -104,6 +105,7 @@
             "pixar"
         ],
         "date": "2011",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars2.jpg",
         "video": "https://media.cpodcasts.com/Movies/Cars_2.mp4",
         "captions": "https://media.cpodcasts.com/Captions/cars 2.vtt",
@@ -122,6 +124,7 @@
             "mcqueen"
         ],
         "date": "2026",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/obsession.jpg",
         "video": "https://media.cpodcasts.com/Movies/Obsession.mp4",
         "captions": "https://media.cpodcasts.com/Captions/obsession.vtt",
@@ -146,6 +149,7 @@
             "christopher nolan"
         ],
         "date": "2010",
+        "date_added": "2026-07-11",
         "thumbnail": "https://media.cpodcasts.com/Thumbnails/inception.jpg",
         "video": "https://media.cpodcasts.com/Movies/Inception.mp4",
         "captions": "https://media.cpodcasts.com/Captions/inception.vtt",
