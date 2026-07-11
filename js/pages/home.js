@@ -9,16 +9,14 @@ function getContinueWatching(videos) {
     );
 }
 
-function getRecentlyAdded(videos) {
-    return [...videos]
-        .sort((a, b) => {
-            const dateDiff = new Date(b.added_date) - new Date(a.added_date);
+function getRecentlyAdded(videos, days = 30) {
 
-            if (dateDiff !== 0)
-                return dateDiff;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
 
-            return Number(b.id) - Number(a.id);
-        })
+    return videos
+        .filter(video => new Date(video.added_date) >= cutoff)
+        .sort((a, b) => new Date(b.added_date) - new Date(a.added_date))
         .slice(0, 10);
 }
 
@@ -27,7 +25,7 @@ export function Home() {
     const videos = getVideos();
 
     const continueWatching = getContinueWatching(videos);
-    const recentlyAdded = getRecentlyAdded(videos);
+    const recentlyAdded = getRecentlyAdded(videos, 30);
 
     return `
         ${Header("home")}
