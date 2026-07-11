@@ -7,6 +7,9 @@ export function Card(video, options = {}) {
     const progress = Number(localStorage.getItem(`progress-${video.id}`));
     const percent = Math.min(progress / video.duration * 100, 100);
 
+    console.log(options);
+    console.log(showProgress);
+
     return `
         <a class="card" href="/video/${video.id}" data-link>
 
