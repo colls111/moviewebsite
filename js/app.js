@@ -7,6 +7,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     router();
 
+    document.getElementById("app").classList.add("loaded");
+
 });
 
 window.addEventListener("popstate", router);
