@@ -33,7 +33,9 @@ export function Home() {
         <main class="container fade-in">
 
             ${continueWatching.length > 0
-                    ? VideoRow("Continue Watching", continueWatching, true)
+                    ? VideoRow("Continue Watching", continueWatching, {
+                        showProgress: true
+                    })
                     : ""
             }
 
