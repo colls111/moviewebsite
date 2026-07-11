@@ -9,7 +9,7 @@ export function Movies() {
     return `
         ${Header("movies")}
 
-        <main class="container">
+        <main class="container fade-in">
             ${CardGrid("", movies)}
         </main>
     `;
