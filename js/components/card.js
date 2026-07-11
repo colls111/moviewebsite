@@ -1,6 +1,8 @@
 import { formatTime } from "../utils/format.js";
 
-export function Card(video) {
+export function Card(video, options = {}) {
+
+    const { showProgress = false } = options;
 
     const progress = Number(localStorage.getItem(`progress-${video.id}`));
     const percent = Math.min(progress / video.duration * 100, 100);
