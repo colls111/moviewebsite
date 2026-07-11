@@ -11,7 +11,14 @@ function getContinueWatching(videos) {
 
 function getRecentlyAdded(videos) {
     return [...videos]
-        .sort((a, b) => Number(b.id) - Number(a.id))
+        .sort((a, b) => {
+            const dateDiff = new Date(b.added_date) - new Date(a.added_date);
+
+            if (dateDiff !== 0)
+                return dateDiff;
+
+            return Number(b.id) - Number(a.id);
+        })
         .slice(0, 10);
 }
 
