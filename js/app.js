@@ -22,7 +22,8 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
 
     history.pushState({}, "", link.getAttribute("href"));
-
+    document.getElementById("app").classList.add("loaded");
+    
     router();
 
 });
