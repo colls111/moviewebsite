@@ -1,6 +1,8 @@
 import { loadVideos } from "./data.js";
 import { router } from "./router.js";
 
+export let currentPlayer = null;
+
 window.addEventListener("DOMContentLoaded", async () => {
 
     await loadVideos();
