@@ -46,9 +46,15 @@ export function router() {
     switch (path) {
 
         case "/":
-            app.innerHTML = Home();
-            setupVideoRows();
-            break;
+        app.innerHTML = Home();
+
+        document.querySelector(".logo")?.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.reload();
+        });
+
+        setupVideoRows();
+        break;
 
         case "/movies":
             app.innerHTML = Movies();
