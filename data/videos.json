@@ -1,1 +1,25 @@
-
+[
+    {
+        "id": "1",
+        "title": "Monsters, Inc.",
+        "description": "Two monsters whose job is to make human children scream accidentally let a little girl into their world and must now protect her from their own kind to return her home unscathed.",
+        "category": "Movies",
+        "genre": "Comedy",
+        "subgenre": "Adventure",
+        "tags": [
+            "monsters",
+            "disney",
+            "pixar",
+            "kids",
+            "animated",
+            "billy crystal",
+            "john goodman"
+        ],
+        "date": "2001",
+        "date_added": "2026-07-08",
+        "thumbnail": "https://media.cpodcasts.com/Thumbnails/Minc.jpg",
+        "video": "https://media.cpodcasts.com/Movies/Monsters,_Inc..mp4",
+        "captions": "https://media.cpodcasts.com/Captions/Minc.vtt",
+        "duration": 5536
+    }
+]
