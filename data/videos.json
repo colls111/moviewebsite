@@ -74,5 +74,31 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story_3.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/toystory3.vtt",
         "duration": 6153
+    },
+    {
+        "id": "4",
+        "title": "Toy Story 4",
+        "description": "When Woody, Buzz, and the gang join Bonnie on a road trip with her new craft project turned toy, Forky, the innocent little spork's antics launch Woody on a wild quest.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Adventure",
+        "tags": [
+            "disney",
+            "pixar",
+            "toy",
+            "story",
+            "woody",
+            "buzz",
+            "lightyear",
+            "jessie",
+            "bonnie"
+        ],
+        "date": "2019",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/toystory4.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/toystory4logo_cropped.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story_4.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/toystory4.vtt",
+        "duration": 6003
     }
 ]
