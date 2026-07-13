@@ -1,4 +1,4 @@
-export function Header(active = "home") {
+export function Header(active = "", search = "") {
 
     return `
     
@@ -13,7 +13,7 @@ export function Header(active = "home") {
             <nav class="nav">
 
                 <a
-                    href="/"
+                    href="/home"
                     data-link
                     class="${active === "home" ? "active" : ""}"
                 >
@@ -39,19 +39,29 @@ export function Header(active = "home") {
             </nav>
 
             <div class="search-box">
-
                 <span>🔍</span>
-
                 <input
                     id="searchInput"
                     class="search"
-                    type="text"
+                    value="${search}"
                     placeholder="Search movies, shows..."
+                    autocomplete="off"
                 >
-
+                
+                <div id="searchDropdown" class="search-dropdown">
+                    <div id="searchResultsLive"></div>
+                </div>
             </div>
-
         </div>
+        <nav class="request">
+            <a
+                href="https://forms.gle/9DyMcscPDgCwfHcf6"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💭 Request
+            </a>
+        </nav>
 
     </header>
 
