@@ -100,5 +100,29 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story_4.mp4",
         "captions": "",
         "duration": 6003
+    },
+    {
+        "id": "5",
+        "title": "Superbad",
+        "description": "Two co-dependent high school seniors are forced to deal with separation anxiety after their plan to stage a booze-soaked party goes awry.",
+        "category": "Movies",
+        "genre": "Comedy",
+        "subgenre": "Teen",
+        "tags": [
+            "jonah",
+            "hill",
+            "super",
+            "bad",
+            "seth",
+            "rogan",
+            "highschool"
+        ],
+        "date": "2007",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/superbad_900x506.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/superbadlogo_cropped.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Superbad.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/superbad.vtt",
+        "duration": 7120
     }
 ]
