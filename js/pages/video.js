@@ -33,9 +33,8 @@ export function Video(id) {
 
     return `
         ${Header()}
-
+        
         <main class="container fade-in">
-
         <div class="layout">
 
             <img
@@ -88,7 +87,6 @@ export function Video(id) {
                     </span>
 
                 </a>
-
             </div>
 
         </div>
