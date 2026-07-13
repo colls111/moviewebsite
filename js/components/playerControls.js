@@ -250,7 +250,8 @@ export function initializePlayer(currentVideo) {
         addListener(play, "click", togglePlay);
 
         back.onclick = () => {
-            history.pushState({}, "", `/video/${currentVideo.id}`);
+            document.title = "C's Movies";
+            history.pushState({}, "", `/home`);
             router();
         };
         cleanupFns.push(() => { back.onclick = null; });
