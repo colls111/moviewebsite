@@ -1,162 +1,6 @@
 [
     {
         "id": "1",
-        "title": "Monsters, Inc.",
-        "description": "Two monsters whose job is to make human children scream accidentally let a little girl into their world and must now protect her from their own kind to return her home unscathed.",
-        "category": "Movies",
-        "genre": "Comedy",
-        "subgenre": "Adventure",
-        "tags": [
-            "monsters",
-            "disney",
-            "pixar",
-            "kids",
-            "animated",
-            "billy crystal",
-            "john goodman"
-        ],
-        "date": "2001",
-        "date_added": "2026-07-08",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/Minc.jpg",
-        "video": "https://media.cpodcasts.com/Movies/Monsters,_Inc..mp4",
-        "captions": "https://media.cpodcasts.com/Captions/Minc.vtt",
-        "duration": 5536
-    },
-    {
-        "id": "2",
-        "title": "The Wolf of Wall Street",
-        "description": "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
-        "category": "Shows",
-        "genre": "Comedy",
-        "subgenre": "Thriller",
-        "tags": [
-            "wolf",
-            "wall street",
-            "dicaprio",
-            "leonardo",
-            "jonah",
-            "hill",
-            "adult",
-            "gambling"
-        ],
-        "date": "2013",
-        "date_added": "2026-07-11",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/WOWS.jpg",
-        "video": "https://media.cpodcasts.com/Movies/The_Wolf_of_Wall_Street.mp4",
-        "captions": "https://media.cpodcasts.com/Captions/WOWS.vtt",
-        "duration": 10792
-    },
-    {
-        "id": "3",
-        "title": "Interstellar",
-        "description": "In a dystopian future where Earth has become near-uninhabitable, a team of astronauts embark on a mission to find a new home for humanity.",
-        "category": "Movies",
-        "genre": "Sci-fi",
-        "subgenre": "Adventure",
-        "tags": [
-            "space",
-            "wormhole",
-            "black hole",
-            "time",
-            "planet",
-            "christopher nolan",
-            "matthew mcconaughey"
-        ],
-        "date": "2014",
-        "date_added": "2026-07-11",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/interstellar.jpg",
-        "video": "https://media.cpodcasts.com/Movies/Interstellar.mp4",
-        "captions": "https://media.cpodcasts.com/Captions/Interstellar.vtt",
-        "duration": 10144
-    },
-    {
-        "id": "4",
-        "title": "Cars",
-        "description": "On the way to the biggest race of his life, a hotshot rookie race car gets stranded in a rundown town and learns that winning isn't everything in life.",
-        "category": "Movies",
-        "genre": "Family",
-        "subgenre": "Comedy",
-        "tags": [
-            "car",
-            "lightning",
-            "mcqueen",
-            "disney",
-            "pixar"
-        ],
-        "date": "2006",
-        "date_added": "2026-07-11",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars.jpg",
-        "video": "https://media.cpodcasts.com/Movies/Cars.mp4",
-        "captions": "https://media.cpodcasts.com/Captions/cars.vtt",
-        "duration": 6996
-    },
-    {
-        "id": "5",
-        "title": "Cars 2",
-        "description": "Star race car Lightning McQueen and his pal Mater head overseas to compete in the World Grand Prix race. But the road to the championship becomes rocky as Mater gets caught up in an intriguing adventure of his own: international espionage.",
-        "category": "Movies",
-        "genre": "Family",
-        "subgenre": "Action",
-        "tags": [
-            "car",
-            "lightning",
-            "mcqueen",
-            "disney",
-            "pixar"
-        ],
-        "date": "2011",
-        "date_added": "2026-07-11",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/cars2.jpg",
-        "video": "https://media.cpodcasts.com/Movies/Cars_2.mp4",
-        "captions": "https://media.cpodcasts.com/Captions/cars 2.vtt",
-        "duration": 6996
-    },
-    {
-        "id": "6",
-        "title": "Obsession",
-        "description": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for, but he soon discovers that some desires come at a dark, sinister price.",
-        "category": "Movies",
-        "genre": "Horror",
-        "subgenre": "Romance",
-        "tags": [
-            "obsessed",
-            "wish",
-            "mcqueen"
-        ],
-        "date": "2026",
-        "date_added": "2026-07-11",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/obsession.jpg",
-        "video": "https://media.cpodcasts.com/Movies/Obsession.mp4",
-        "captions": "https://media.cpodcasts.com/Captions/obsession.vtt",
-        "duration": 6533
-    },
-    {
-        "id": "7",
-        "title": "Inception",
-        "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO, but his tragic past may doom the project and his team to disaster.",
-        "category": "Movies",
-        "genre": "Sci-fi",
-        "subgenre": "Action",
-        "tags": [
-            "psychological",
-            "future",
-            "time",
-            "dream",
-            "leonardo",
-            "dicaprio",
-            "murphey",
-            "cillian",
-            "christopher nolan"
-        ],
-        "date": "2010",
-        "date_added": "2026-07-11",
-        "thumbnail": "https://media.cpodcasts.com/Thumbnails/inception.jpg",
-        "video": "https://media.cpodcasts.com/Movies/Inception.mp4",
-        "captions": "https://media.cpodcasts.com/Captions/inception.vtt",
-        "duration": 8888
-    },
-    {
-        "id": "15",
         "title": "Toy Story",
         "description": "A cowboy doll is profoundly jealous when a new spaceman action figure supplants him as the top toy in a boy's bedroom. When circumstances separate them from their owner, the duo have to put aside their differences to return to him.",
         "category": "Movies",
@@ -180,7 +24,7 @@
         "duration": 4864
     },
     {
-        "id": "25",
+        "id": "2",
         "title": "Toy Story 2",
         "description": "When Woody is stolen by a toy collector, Buzz and his friends set out on a rescue mission to save Woody before he becomes a museum toy property with his roundup gang Jessie, Prospector, and Bullseye.",
         "category": "Movies",
@@ -206,7 +50,7 @@
         "duration": 5546
     },
     {
-        "id": "35",
+        "id": "3",
         "title": "Toy Story 3",
         "description": "As Andy prepares to leave for college, Woody, Buzz and the gang face an uncertain future when a mix-up sends them to a daycare center full of new toys.",
         "category": "Movies",
