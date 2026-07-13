@@ -4,13 +4,9 @@ import { router } from "./router.js";
 export let currentPlayer = null;
 
 window.addEventListener("DOMContentLoaded", async () => {
-
     await loadVideos();
-
     router();
-
     document.getElementById("app").classList.add("loaded");
-
 });
 
 window.addEventListener("popstate", router);
@@ -23,9 +19,8 @@ document.addEventListener("click", (e) => {
 
     e.preventDefault();
 
-    history.pushState({}, "", link.getAttribute("href"));
-    document.getElementById("app").classList.add("loaded");
-    
+    history.pushState({}, "", link.href);
+
     router();
 
 });
