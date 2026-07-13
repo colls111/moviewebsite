@@ -21,7 +21,20 @@ export function Card(video, options = {}) {
                     alt="${video.title}"
                     loading="lazy"
                 >
-
+            
+                ${
+                    video.logo
+                        ? `
+                            <img
+                                class="movie-logo"
+                                src="${video.logo}"
+                                alt="${video.title} logo"
+                                loading="lazy"
+                            >
+                        `
+                        : ""
+                }
+            
                 <div class="duration">
                     ${formatTime(video.duration)}
                 </div>
