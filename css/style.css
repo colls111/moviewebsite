@@ -6,51 +6,53 @@
 }
 
 body{
-    color:white;
-    min-height:100vh;
+    color: white;
+    min-height: 100vh;
 
     background:
-        radial-gradient(circle at 20% 0%,
-            rgba(77,163,255,.20),
-            transparent 55%),
+        radial-gradient(circle at 25% -10%,
+            rgba(90,170,255,.16),
+            transparent 50%),
 
-        radial-gradient(circle at 80% 10%,
-            rgba(60,100,220,.14),
-            transparent 60%),
+        radial-gradient(circle at 85% 0%,
+            rgba(35,75,180,.12),
+            transparent 55%),
 
         linear-gradient(
             to bottom,
-            #151c2c,
-            #111827 35%,
-            #090d16 100%
+            #182338,
+            #141d2f,
+            #101827
         );
 
-    background-attachment:fixed;
+    background-attachment: fixed;
 }
 
 /* Header */
 
 .header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
-    position:sticky;
-    top:0;
-    z-index:100;
+    display: flex;
+    align-items: center;
 
-    display:flex;
-    align-items:center;
+    padding: 18px 40px;
 
-    padding:18px 40px;
+    background: rgba(10, 15, 25, 0.55);
 
-    background:rgba(8,12,18,.92);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-top: none;
 
     box-shadow:
-        0 8px 24px rgba(0,0,0,.30),
-        0 1px 0 rgba(77,163,255,.08);
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -1px 0 rgba(255,255,255,.04),
+        0 8px 32px rgba(0,0,0,.25),
+        0 0 30px rgba(77,163,255,.08);
 }
 
 .header-left{
@@ -102,6 +104,38 @@ body{
 
 }
 
+.request a:hover{
+
+    color:#8db9ff;
+    transform:scale(1.05);
+
+}
+
+.request a.active{
+
+    color:#8db9ff;
+
+}
+
+.request{
+    display: flex;
+    gap: 30px;
+
+    margin-left: auto;
+}
+
+.request a{
+
+    color:white;
+    text-decoration:none;
+
+    font-size:19px;
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
 .nav a:hover{
 
     color:#8db9ff;
@@ -122,7 +156,7 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
-
+    position:relative;
     width:420px;
 
     padding:8px 18px;
@@ -159,6 +193,118 @@ body{
 
     color:#7f8aa1;
 
+}
+
+.search-dropdown{
+
+    position:absolute;
+
+    top:calc(100% + 10px);
+    left:0;
+
+    width:100%;
+    max-height:500px;
+
+    overflow-y:auto;
+
+    display:none;
+
+    background:rgba(17,24,39,.97);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:18px;
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.45),
+        0 1px 0 rgba(77,163,255,.08);
+
+    z-index:1000;
+
+}
+
+.search-result-item{
+
+    display:flex;
+    gap:14px;
+
+    padding:12px;
+
+    color:white;
+    text-decoration:none;
+
+    border-radius:12px;
+
+    transition:.18s;
+
+}
+
+.search-result-item:hover {
+    background: #333;
+}
+
+.search-result-item img{
+
+    width:120px;
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    flex-shrink:0;
+
+}
+
+.search-result-info{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    min-width:0;
+
+}
+
+.search-result-info h4{
+
+    margin-bottom:6px;
+
+    font-size:16px;
+    font-weight:bold;
+
+}
+
+.search-result-info p{
+
+    color:#8db9ff;
+    font-size:14px;
+
+    margin-bottom:6px;
+
+}
+
+.search-result-info small{
+
+    color:#9f9f9f;
+
+    line-height:1.4;
+
+}
+
+.search-dropdown::-webkit-scrollbar{
+    width:8px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb{
+    background:#3d4b63;
+    border-radius:999px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb:hover{
+    background:#4da3ff;
 }
 
 /* Layout */
@@ -275,6 +421,10 @@ body{
     justify-content:flex-start;
 }
 
+.video-row-container{
+    position: relative;
+}
+
 .video-row::-webkit-scrollbar{
 
     display:none;
@@ -285,10 +435,6 @@ body{
 
     width:300px;
     flex:0 0 auto;
-}
-
-.video-row-container{
-    position:relative;
 }
 
 .scroll-btn{
@@ -339,7 +485,7 @@ body{
 }
 
 .scroll-btn spanR{
-    transform:translateX(-12px);
+    transform:translateX(-15px);
 }
 
 .fade-in{
@@ -494,9 +640,9 @@ body{
     position:absolute;
     left:8px;
     right:8px;
-    bottom:8px;
+    bottom:4px;
 
-    height:5px;
+    height:8px;
     border-radius:999px;
     overflow:hidden;
 
@@ -507,4 +653,15 @@ body{
     height:100%;
     background:#4da3ff;
     border-radius:999px;
+}
+
+.footer{
+    margin-top: 80px;
+    padding: 40px 0;
+    text-align: center;
+
+    color: rgba(255,255,255,.5);
+    font-size: 14px;
+
+    border-top: 1px solid rgba(255,255,255,.08);
 }
