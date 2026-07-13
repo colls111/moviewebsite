@@ -124,5 +124,27 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Superbad.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/superbad.vtt",
         "duration": 7120
+    },
+    {
+        "id": "6",
+        "title": "That's My Boy",
+        "description": "While in his teens, Donny fathered a son, Todd, and raised him as a single parent until Todd's 18th birthday. Now Donny resurfaces just before Todd's wedding after years apart, sending the groom-to-be's world crashing down.",
+        "category": "Movies",
+        "genre": "Comedy",
+        "subgenre": "Drama",
+        "tags": [
+            "adam",
+            "sandler",
+            "thats my boy",
+            "teacher",
+            "pregnant"
+        ],
+        "date": "2012",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/thatsmyboy_900x506.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/thatsmyboylogo_cropped.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/That's_My_Boy.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/tmb.vtt",
+        "duration": 6963
     }
 ]
