@@ -10,7 +10,7 @@ export function Shows() {
         ${Header("shows")}
 
         <main class="container fade-in">
-            ${CardGrid("", shows)}
+            ${CardGrid("", shows, true)}
         </main>
     `;
 
