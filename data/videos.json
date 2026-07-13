@@ -178,5 +178,31 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/toystory.vtt",
         "duration": 4864
+    },
+    {
+        "id": "25",
+        "title": "Toy Story 2",
+        "description": "When Woody is stolen by a toy collector, Buzz and his friends set out on a rescue mission to save Woody before he becomes a museum toy property with his roundup gang Jessie, Prospector, and Bullseye.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Adventure",
+        "tags": [
+            "disney",
+            "pixar",
+            "toy",
+            "story",
+            "woody",
+            "buzz",
+            "lightyear",
+            "jessie",
+            "zurg"
+        ],
+        "date": "1999",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/toystorybackdrop2.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/toystory2logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story_2.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/toystory2.vtt",
+        "duration": 5546
     }
 ]
