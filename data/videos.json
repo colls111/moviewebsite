@@ -204,5 +204,31 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story_2.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/toystory2.vtt",
         "duration": 5546
+    },
+    {
+        "id": "35",
+        "title": "Toy Story 3",
+        "description": "As Andy prepares to leave for college, Woody, Buzz and the gang face an uncertain future when a mix-up sends them to a daycare center full of new toys.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Adventure",
+        "tags": [
+            "disney",
+            "pixar",
+            "toy",
+            "story",
+            "woody",
+            "buzz",
+            "lightyear",
+            "jessie",
+            "zurg"
+        ],
+        "date": "2010",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/toystory3backdrop.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/toystory3logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Toy_Story_3.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/toystory3.vtt",
+        "duration": 6153
     }
 ]
