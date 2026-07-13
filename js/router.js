@@ -6,6 +6,7 @@ import { Player, getPlayerVideo } from "./pages/player.js";
 
 import { setupVideoRows } from "./scrollRows.js";
 import { initializePlayer } from "./components/playerControls.js";
+import { initializeLiveSearch } from "./search.js";
 
 let currentPlayer = null;
 
@@ -31,37 +32,41 @@ export function router() {
                 currentPlayer = initializePlayer(video);
             });
         }
-
         return;
     }
 
     if (path.startsWith("/video/")) {
 
         const id = path.split("/")[2];
+        const backButton = document.querySelector(".back-bttn");
 
         app.innerHTML = Video(id);
+        initializeLiveSearch();
         return;
     }
 
     switch (path) {
 
         case "/":
-        app.innerHTML = Home();
+            app.innerHTML = Home();
+            document.title = "C's Movies";
+            setupVideoRows();
+            break;
 
-        document.querySelector(".logo")?.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.location.reload();
-        });
-
-        setupVideoRows();
-        break;
+        case "/home":
+            app.innerHTML = Home();
+            document.title = "C's Movies";
+            setupVideoRows();
+            break;
 
         case "/movies":
             app.innerHTML = Movies();
+            document.title = "C's Movies";
             break;
 
         case "/shows":
             app.innerHTML = Shows();
+            document.title = "C's Movies";
             break;
 
         default:
@@ -70,4 +75,5 @@ export function router() {
                 <p>Page not found.</p>
             `;
     }
+    initializeLiveSearch();
 }
