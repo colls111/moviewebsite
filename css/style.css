@@ -816,7 +816,7 @@ h1, h2, h3, h4, .title, .card h3 {
     position:absolute;
 
     left:50%;
-    top:50%;
+    top:80%;
 
     transform:translate(-50%, -50%);
 
