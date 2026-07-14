@@ -168,5 +168,28 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/A_Minecraft_Movie.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/mc_fixed.vtt",
         "duration": 6055
+    },
+    {
+        "id": "8",
+        "title": "Monsters, Inc.",
+        "description": "Two monsters whose job is to make human children scream accidentally let a little girl into their world and must now protect her from their own kind to return her home unscathed.",
+        "category": "Movies",
+        "genre": "Comedy",
+        "subgenre": "Adventure",
+        "tags": [
+            "monster",
+            "monsters",
+            "billy",
+            "crystal",
+            "mike",
+            "sully"
+        ],
+        "date": "2001",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/minc_900x506.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/minclogo_cropped.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Monsters,_Inc..mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/minc.vtt",
+        "duration": 5536
     }
 ]
