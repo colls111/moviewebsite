@@ -146,5 +146,27 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/That's_My_Boy.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/tmb.vtt",
         "duration": 6963
+    },
+    {
+        "id": "7",
+        "title": "A Minecraft Movie",
+        "description": "Four misfits are suddenly pulled through a mysterious portal into a bizarre cubic wonderland that thrives on imagination. To get back home they'll have to master this world while embarking on a quest with an unexpected expert crafter.",
+        "category": "Movies",
+        "genre": "Adventure",
+        "subgenre": "Fantasy",
+        "tags": [
+            "minecraft",
+            "jack",
+            "black",
+            "jason",
+            "momoa"
+        ],
+        "date": "2025",
+        "date_added": "2026-07-13",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/minecraft_900x506.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/mclogo_cropped.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/A_Minecraft_Movie.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/mc.vtt",
+        "duration": 6055
     }
 ]
