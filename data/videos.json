@@ -213,5 +213,29 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Sausage_Party.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/sausageparty.vtt",
         "duration": 5325
+    },
+    {
+        "id": "10",
+        "title": "Monsters University",
+        "description": "A look at the relationship between Mike Wazowski and James P. \"Sully\" Sullivan during their days at Monsters University, when they weren't necessarily the best of friends.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Comedy",
+        "tags": [
+            "monster",
+            "monsters",
+            "university",
+            "billy",
+            "crystal",
+            "mike",
+            "sully"
+        ],
+        "date": "2013",
+        "date_added": "2026-07-17",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Monsters_University.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Monsters_University_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Monsters_University.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Monsters_University.vtt",
+        "duration": 6228
     }
 ]
