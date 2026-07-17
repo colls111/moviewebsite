@@ -237,5 +237,26 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Monsters_University.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Monsters_University.vtt",
         "duration": 6228
+    },
+    {
+        "id": "11",
+        "title": "Interstellar",
+        "description": "In a dystopian future where Earth has become near-uninhabitable, a team of astronauts embark on a mission to find a new home for humanity.",
+        "category": "Movies",
+        "genre": "Sci-fi",
+        "subgenre": "Adventure",
+        "tags": [
+            "black hole",
+            "cooper",
+            "space",
+            "nasa"
+        ],
+        "date": "2014",
+        "date_added": "2026-07-17",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Interstellar.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Interstellar_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Interstellar.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Interstellar.vtt",
+        "duration": 10144
     }
 ]
