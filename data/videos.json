@@ -191,5 +191,27 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Monsters,_Inc..mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/minc.vtt",
         "duration": 5536
+    },
+    {
+        "id": "9",
+        "title": "Sausage Party",
+        "description": "A sausage leads a group of supermarket products on a journey to discover the truth about their existence and what really happens when they are picked off the shelf.",
+        "category": "Movies",
+        "genre": "Comedy",
+        "subgenre": "Fantasy",
+        "tags": [
+            "sausage",
+            "party",
+            "jonah",
+            "hill",
+            "sex"
+        ],
+        "date": "2016",
+        "date_added": "2026-07-17",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/sausageparty.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/sausagelogo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Sausage_Party.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/sausageparty.vtt",
+        "duration": 5325
     }
 ]
