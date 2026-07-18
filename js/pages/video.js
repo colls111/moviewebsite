@@ -97,6 +97,10 @@ function cleanupPreload() {
 
 // Cleanup when leaving the page (important!)
 export function cleanupVideoPage() {
-    cleanupPreload();
-    currentVideoId = null;
+    if (preloadVideoElement) {
+        preloadVideoElement.pause();
+        preloadVideoElement.src = '';        // Important: releases the resource
+        preloadVideoElement.remove();
+        preloadVideoElement = null;
+    }
 }
