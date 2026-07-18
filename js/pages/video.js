@@ -6,10 +6,6 @@ export function Video(id) {
 
     const video = getVideos().find(v => v.id === id);
 
-    fetch(video.video, {
-        cache: "force-cache"
-    }).catch(() => {});
-
     if (!video) {
         return `
             ${Header()}
