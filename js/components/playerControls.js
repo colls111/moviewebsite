@@ -344,6 +344,8 @@ export function initializePlayer(currentVideo) {
             video.duration,
             Math.max(0, video.currentTime + seconds)
         );
+
+        handleTimeUpdate(); // Update slider + time immediately
         saveProgress();
     }
 
