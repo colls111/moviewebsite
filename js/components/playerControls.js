@@ -239,7 +239,7 @@ export function initializePlayer(currentVideo) {
         addListener(progress, "change", saveProgress);
         addListener(progress, "input", () => {
             video.currentTime = progress.value;
-            updateSlider(progress);
+            handleTimeUpdate();
             saveProgress();
         });
         addListener(progress, "mouseenter", () => {
@@ -544,7 +544,6 @@ export function initializePlayer(currentVideo) {
         clearTimeout(hideTimer);
         clearTimeout(speedTimer);
         clearTimeout(centerIconTimer);
-        clearTimeout(previewTimer);
         
         // Remove interval
         if (window.progressSaveInterval) {
