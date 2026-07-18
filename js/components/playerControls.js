@@ -6,6 +6,7 @@ export function initializePlayer(currentVideo) {
     // ------------------------
     const video = document.getElementById("video");
     const progress = document.getElementById("progress");
+    const progressPreview = document.getElementById("progressPreview");
     const fullscreenBtn = document.getElementById("fullscreen");
     const time = document.getElementById("time");
     const player = document.querySelector(".player");
@@ -238,8 +239,22 @@ export function initializePlayer(currentVideo) {
             video.currentTime = progress.value;
             updateSlider(progress);
             saveProgress();
+        
+            updateProgressPreview();
         });
-
+        
+        addListener(progress, "pointerdown", () => {
+            updateProgressPreview();
+            progressPreview.classList.add("show");
+        });
+        
+        addListener(progress, "pointerup", () => {
+            progressPreview.classList.remove("show");
+        });
+        
+        addListener(progress, "pointercancel", () => {
+            progressPreview.classList.remove("show");
+        });
         addListener(window, "beforeunload", saveProgress);
 
         addListener(jumpInput, "keydown", (e) => {
@@ -508,6 +523,27 @@ export function initializePlayer(currentVideo) {
         slider.style.background = `linear-gradient(to right, #4da3ff 0%, #4da3ff ${percent}%, #555 ${percent}%, #555 100%)`;
     }
 
+    function updateProgressPreview() {
+
+        progressPreview.textContent = format(Number(progress.value));
+    
+        const percent =
+            (progress.value - progress.min) /
+            (progress.max - progress.min);
+    
+        const width = progress.offsetWidth;
+        const pillWidth = progressPreview.offsetWidth;
+    
+        let x = percent * width;
+    
+        x = Math.max(
+            pillWidth / 2,
+            Math.min(x, width - pillWidth / 2)
+        );
+    
+        progressPreview.style.left = `${x}px`;
+    }
+    
     // ------------------------
     // CLEANUP
     // ------------------------
