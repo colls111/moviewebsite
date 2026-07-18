@@ -238,12 +238,8 @@ export function initializePlayer(currentVideo) {
 
         addListener(progress, "change", saveProgress);
         addListener(progress, "input", () => {
-            const newTime = Number(progress.value);
-            video.currentTime = newTime;
-            
-            // Update UI immediately for smooth feel
-            time.textContent = `${format(newTime)} / ${format(video.duration)}`;
-            updateSlider(progress);
+            video.currentTime = progress.value;
+            handleTimeUpdate();
             saveProgress();
         });
         addListener(progress, "mouseenter", () => {
@@ -525,19 +521,17 @@ export function initializePlayer(currentVideo) {
         if (!video.duration || isNaN(video.duration)) return;
 
         const rect = progress.getBoundingClientRect();
-        let percent = (e.clientX - rect.left) / rect.width;
-        percent = Math.max(0, Math.min(1, percent));
-
+        const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
         const hoverTime = percent * video.duration;
 
         timePreview.textContent = format(hoverTime);
 
-        // Better positioning - account for container padding
-        const previewWidth = timePreview.offsetWidth || 60;
+        // Position the pill centered above the hover point
+        const previewWidth = timePreview.offsetWidth;
         let leftPos = e.clientX - rect.left - previewWidth / 2;
 
-        // Clamp to stay inside the progress bar area
-        leftPos = Math.max(8, Math.min(leftPos, rect.width - previewWidth - 8));
+        // Keep it within bounds
+        leftPos = Math.max(10, Math.min(leftPos, rect.width - previewWidth - 10));
 
         timePreview.style.left = `${leftPos}px`;
     }
