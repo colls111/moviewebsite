@@ -29,6 +29,26 @@
 
 }
 
+#timePreview {
+    position: absolute;
+    bottom: 65px;           /* Above the progress bar */
+    background: rgba(20, 20, 20, 0.95);
+    color: white;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+#timePreview.show {
+    opacity: 1;
+}
+
 .bottom{
 
     position:absolute;
