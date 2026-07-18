@@ -65,42 +65,26 @@ export function Video(id) {
 // ==================== PRELOADING ====================
 
 function startPreload(video) {
-    // Option 1: Preferred — Use hidden video element (best for browsers)
     preloadVideoElement = document.createElement('video');
     preloadVideoElement.style.display = 'none';
-    preloadVideoElement.preload = 'auto';           // or 'metadata' for lighter preload
+    preloadVideoElement.preload = 'auto';
     preloadVideoElement.src = video.video;
-    
-    // Optional: preload only first few seconds
-    // preloadVideoElement.preload = 'metadata';
+
     
     document.body.appendChild(preloadVideoElement);
-
-    // Option 2: You can still use fetch as fallback
-    // fetch(video.video, { cache: "force-cache" }).catch(() => {});
 }
 
 function cleanupPreload() {
-    if (preloadVideoElement) {
-        preloadVideoElement.pause();
-        preloadVideoElement.src = '';
-        preloadVideoElement.remove();
-        preloadVideoElement = null;
-    }
-    
-    // If you want to keep using AbortController with fetch:
-    // if (preloadController) {
-    //     preloadController.abort();
-    //     preloadController = null;
-    // }
+    if (!preloadVideoElement) return;
+
+    preloadVideoElement.pause();
+    preloadVideoElement.removeAttribute("src");
+    preloadVideoElement.load();
+    preloadVideoElement.remove();
+
+    preloadVideoElement = null;
 }
 
-// Cleanup when leaving the page (important!)
 export function cleanupVideoPage() {
-    if (preloadVideoElement) {
-        preloadVideoElement.pause();
-        preloadVideoElement.src = '';        // Important: releases the resource
-        preloadVideoElement.remove();
-        preloadVideoElement = null;
-    }
+    cleanupPreload();
 }
