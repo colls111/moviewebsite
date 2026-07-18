@@ -139,6 +139,15 @@
 
 }
 
+#captionsOverlay {
+    transform: translateX(-50%);
+    transition: transform .3s ease;
+}
+
+.player.hide-ui #captionsOverlay {
+    transform: translate(-50%, 30px);
+}
+
 .info{
 
     color:white;
