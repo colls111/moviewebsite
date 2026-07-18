@@ -525,3 +525,43 @@ input[type="range"]:active::-moz-range-thumb{
 
     
 }
+
+.progress-container {
+    position: relative;
+    width: 100%;
+}
+
+#progress {
+    width: 100%;
+    display: block;
+}
+
+.progress-preview {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+
+    padding: 5px 9px;
+
+    background: rgba(15, 20, 30, 0.95);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+
+    font-size: 12px;
+    white-space: nowrap;
+
+    pointer-events: none;
+    opacity: 0;
+
+    transform: translateX(-50%) translateY(4px);
+    transition:
+        opacity 0.12s ease,
+        transform 0.12s ease;
+}
+
+.progress-preview.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
