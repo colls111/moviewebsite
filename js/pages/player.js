@@ -36,21 +36,18 @@ export function Player(id) {
 
             <div class="bottom">
 
-                <div class="progress-container">
+                <input
+                    id="progress"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="any"
+                    value="0">
 
-                    <input
-                        id="progress"
-                        type="range"
-                        min="0"
-                        max="100"
-                        step="any"
-                        value="0">
-                
-                    <div id="progressPreview" class="progress-preview">
-                        0:00
-                    </div>
-                
+                <div class="info">
+                    <span id="time">0:00 / 0:00</span>
                 </div>
+
                 <div class="controls">
 
                     <div class="left">
