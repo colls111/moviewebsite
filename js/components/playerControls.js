@@ -6,6 +6,7 @@ export function initializePlayer(currentVideo) {
     // ------------------------
     const video = document.getElementById("video");
     const progress = document.getElementById("progress");
+    const timePreview = document.getElementById("timePreview");
     const fullscreenBtn = document.getElementById("fullscreen");
     const time = document.getElementById("time");
     const player = document.querySelector(".player");
@@ -232,6 +233,8 @@ export function initializePlayer(currentVideo) {
 
         addListener(player, "mousemove", showUI);
         addListener(player, "mouseenter", showUI);
+        
+        addListener(progress, "mousemove", updateTimePreview);
 
         addListener(progress, "change", saveProgress);
         addListener(progress, "input", () => {
@@ -239,7 +242,13 @@ export function initializePlayer(currentVideo) {
             updateSlider(progress);
             saveProgress();
         });
+        addListener(progress, "mouseenter", () => {
+            timePreview.classList.add("show");
+        });
 
+        addListener(progress, "mouseleave", () => {
+            timePreview.classList.remove("show");
+        });
         addListener(window, "beforeunload", saveProgress);
 
         addListener(jumpInput, "keydown", (e) => {
@@ -508,6 +517,25 @@ export function initializePlayer(currentVideo) {
         slider.style.background = `linear-gradient(to right, #4da3ff 0%, #4da3ff ${percent}%, #555 ${percent}%, #555 100%)`;
     }
 
+    function updateTimePreview(e) {
+        if (!video.duration || isNaN(video.duration)) return;
+
+        const rect = progress.getBoundingClientRect();
+        const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        const hoverTime = percent * video.duration;
+
+        timePreview.textContent = format(hoverTime);
+
+        // Position the pill centered above the hover point
+        const previewWidth = timePreview.offsetWidth;
+        let leftPos = e.clientX - rect.left - previewWidth / 2;
+
+        // Keep it within bounds
+        leftPos = Math.max(10, Math.min(leftPos, rect.width - previewWidth - 10));
+
+        timePreview.style.left = `${leftPos}px`;
+    }
+
     // ------------------------
     // CLEANUP
     // ------------------------
@@ -516,7 +544,8 @@ export function initializePlayer(currentVideo) {
         clearTimeout(hideTimer);
         clearTimeout(speedTimer);
         clearTimeout(centerIconTimer);
-
+        clearTimeout(previewTimer);
+        
         // Remove interval
         if (window.progressSaveInterval) {
             clearInterval(window.progressSaveInterval);
