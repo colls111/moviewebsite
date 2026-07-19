@@ -258,5 +258,26 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Interstellar.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Interstellar.vtt",
         "duration": 10144
+    },
+    {
+        "id": "12",
+        "title": "Krampus",
+        "description": "A boy who has a bad Christmas accidentally summons a festive demon to his family home.",
+        "category": "Movies",
+        "genre": "Horror",
+        "subgenre": "Comedy",
+        "tags": [
+            "christmas",
+            "holiday",
+            "krampus",
+            "santa"
+        ],
+        "date": "2015",
+        "date_added": "2026-07-18",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Krampus.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Krampus_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Krampus.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Krampus.vtt",
+        "duration": 5861
     }
 ]
