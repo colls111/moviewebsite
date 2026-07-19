@@ -279,5 +279,31 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Krampus.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Krampus.vtt",
         "duration": 5861
+    },
+    {
+        "id": "13",
+        "title": "Inception",
+        "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO, but his tragic past may doom the project and his team to disaster.",
+        "category": "Movies",
+        "genre": "Sci-fi",
+        "subgenre": "Action",
+        "tags": [
+            "dream",
+            "time",
+            "chris",
+            "christopher",
+            "nolan",
+            "leonardo",
+            "dicaprio",
+            "cillian",
+            "elliot"
+        ],
+        "date": "2010",
+        "date_added": "2026-07-19",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Inception.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Inception_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Inception.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Inception.vtt",
+        "duration": 8888
     }
 ]
