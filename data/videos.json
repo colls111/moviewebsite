@@ -306,5 +306,30 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Inception.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Inception.vtt",
         "duration": 8888
+    },
+    {
+        "id": "14",
+        "title": "The Angry Birds Movie",
+        "description": "When an island populated by happy, flightless birds is visited by mysterious green pigs, it's up to three unlikely outcasts to figure out what the pigs are up to.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Comedy",
+        "tags": [
+            "angry",
+            "birds",
+            "red",
+            "chuck",
+            "bomb",
+            "mighty",
+            "eagle",
+            "rovio"
+        ],
+        "date": "2016",
+        "date_added": "2026-07-19",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/The_Angry_Birds_Movie.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/The_Angry_Birds_Movie_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Angry_Birds_Movie.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/The_Angry_Birds_Movie.vtt",
+        "duration": 5834
     }
 ]
