@@ -331,5 +331,25 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Angry_Birds_Movie.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/The_Angry_Birds_Movie.vtt",
         "duration": 5834
+    },
+    {
+        "id": "underwater",
+        "title": "Underwater",
+        "description": "A crew of oceanic researchers working for a deep sea drilling company try to get to safety after a mysterious earthquake devastates their deepwater research and drilling facility located at the bottom of the Mariana Trench.",
+        "category": "Movies",
+        "genre": "Horror",
+        "subgenre": "Action",
+        "tags": [
+            "under",
+            "water",
+            "monster"
+        ],
+        "date": "2020",
+        "date_added": "2026-07-21",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Underwater.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Underwater_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Underwater.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Underwater.vtt",
+        "duration": 5704
     }
 ]
