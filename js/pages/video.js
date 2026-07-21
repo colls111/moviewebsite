@@ -5,7 +5,21 @@ import { formatTime } from "../utils/format.js";
 export function Video(id) {
 
     const video = getVideos().find(v => v.id === id);
-
+    
+    const preloadVideo = document.createElement('video');
+    preloadVideo.style.display = 'none';
+    preloadVideo.preload = 'auto';
+    preloadVideo.src = video.videoUrl;
+    
+    preloadVideo.muted = true;
+    
+    document.body.appendChild(preloadVideo);
+    
+    window.addEventListener('beforeunload', () => {
+        preloadVideo.src = '';
+        preloadVideo.remove();
+    });
+    
     if (!video) {
         return `
             ${Header()}
@@ -30,14 +44,6 @@ export function Video(id) {
         progress <= video.duration - 600
             ? `▶️ Continue Watching • ${formatTime(progress)}`
             : "▶️ Watch Now";
-    
-    const link = document.createElement("link");
-
-    link.rel = "preload";
-    link.as = "video";
-    link.href = video.videoUrl;
-    
-    document.head.appendChild(link);
     
     return `
         ${Header()}
