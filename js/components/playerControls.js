@@ -252,11 +252,17 @@ export function initializePlayer(currentVideo) {
             play.textContent = "▶️";
         });
 
-        addListener(video, "loadedmetadata", () => {
+        function handleMetadata() {
             loadProgress();
             updateSlider(progress);
             initCaptions();
-        });
+        }
+
+        if (video.readyState >= 1) {
+            handleMetadata();
+        } else {
+            addListener(video, "loadedmetadata", handleMetadata, { once: true });
+        }
 
         addListener(video, "pause", () => {
             clearTimeout(hideTimer);
@@ -641,7 +647,9 @@ export function initializePlayer(currentVideo) {
     }, 15000);
     cleanupFns.push(() => clearInterval(progressInterval));
 
-    if (video) {
+    if (video.readyState >= 3) {
+    video.play().catch(() => {});
+    } else {
         addListener(video, "canplay", () => {
             video.play().catch(() => {});
         }, { once: true });
