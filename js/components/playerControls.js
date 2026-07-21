@@ -1,5 +1,5 @@
 import { router } from "../router.js";
-import { getPreloadedVideo, transferPreloadedVideo } from "./preloadVideo.js";
+import { getPreloadedVideo, transferPreloadedVideo } from "../components/preloadVideo.js";
 
 export function initializePlayer(currentVideo) {
     // ------------------------
