@@ -1,33 +1,17 @@
 import { Header } from "../components/header.js";
 import { getVideos } from "../data.js";
 import { formatTime } from "../utils/format.js";
-
-
-function preloadVideoChunk(url, megabytes = 10) {
-    const bytes = megabytes * 1024 * 1024 - 1; // inclusive end byte
-    
-    fetch(url, { 
-        method: 'GET', 
-        headers: { Range: `bytes=0-${bytes}` }
-    })
-    .catch(() => {}); // Cloudflare or server may not support Range, that's fine
-}
+import { preloadVideo } from "../components/preloadVideo.js";
 
 export function Video(id) {
 
     const video = getVideos().find(v => v.id === id);
     
     if (!video) {
-        return `
-            ${Header()}
-
-            <main class="container">
-                <h1>Video not found</h1>
-            </main>
-        `;
+        return `${Header()}<main class="container"><h1>Video not found</h1></main>`;
     }
     
-    preloadVideoChunk(video.video, 10);
+    preloadVideo(video.videoUrl);
     
     const typeText =
         video.category === "Shows"
