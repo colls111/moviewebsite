@@ -106,7 +106,22 @@ export function initializePlayer(currentVideo) {
             video.src = currentVideo.video;
             video.load();
         }
+        let track = video.querySelector("track");
 
+        if (!track) {
+            track = document.createElement("track");
+            track.id = "captionTrack";
+            track.kind = "subtitles";
+            track.srclang = "en";
+            track.label = "English";
+
+            video.appendChild(track);
+        }
+
+        if (currentVideo.captions) {
+            track.src = currentVideo.captions;
+        }
+        
         video.crossOrigin = "anonymous";
 
         if (currentVideo.captions) {
