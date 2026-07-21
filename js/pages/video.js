@@ -11,7 +11,7 @@ export function Video(id) {
         return `${Header()}<main class="container"><h1>Video not found</h1></main>`;
     }
     
-    preloadVideo(video.videoUrl);
+    preloadVideo(video.video);
     
     const typeText =
         video.category === "Shows"
