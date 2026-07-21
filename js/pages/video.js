@@ -27,7 +27,7 @@ export function Video(id) {
         `;
     }
     
-    preloadVideoChunk(video.videoUrl, 10);
+    preloadVideoChunk(video.video, 10);
     
     const typeText =
         video.category === "Shows"
