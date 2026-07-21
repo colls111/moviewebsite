@@ -16,7 +16,6 @@ function preloadVideoChunk(url, megabytes = 10) {
 export function Video(id) {
 
     const video = getVideos().find(v => v.id === id);
-    preloadVideoChunk(video.videoUrl, 10);
     
     if (!video) {
         return `
@@ -27,7 +26,9 @@ export function Video(id) {
             </main>
         `;
     }
-
+    
+    preloadVideoChunk(video.videoUrl, 10);
+    
     const typeText =
         video.category === "Shows"
             ? "📺 Show"
