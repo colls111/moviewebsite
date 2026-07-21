@@ -31,11 +31,13 @@ export function Video(id) {
             ? `▶️ Continue Watching • ${formatTime(progress)}`
             : "▶️ Watch Now";
     
-    const preload = document.createElement("video");
-    preload.src = video.videoUrl;
-    preload.preload = "auto";
-    preload.muted = true;
-    preload.load();
+    const link = document.createElement("link");
+
+    link.rel = "preload";
+    link.as = "video";
+    link.href = video.videoUrl;
+    
+    document.head.appendChild(link);
     
     return `
         ${Header()}
