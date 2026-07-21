@@ -1,3 +1,4 @@
+// preloadVideo.js
 let preloader = null;
 
 export function getPreloadedVideo() {
@@ -24,41 +25,31 @@ export function preloadVideo(url) {
     preloader.load();
 
     preloadInitialChunk(url, 12);
-
     return preloader;
 }
 
 function preloadInitialChunk(url, megabytes = 12) {
     const bytes = Math.floor(megabytes * 1024 * 1024) - 1;
-    fetch(url, {
-        headers: { Range: `bytes=0-${bytes}` }
-    }).catch(() => {});
+    fetch(url, { headers: { Range: `bytes=0-${bytes}` } }).catch(() => {});
 }
 
-export function transferPreloadedVideo(targetVideoElement) {
-    if (!preloader) return false;
+export function transferPreloadedVideo() {
+    if (!preloader) return null;
 
-    if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+    const newVideo = preloader;
 
-    targetVideoElement.src = preloader.src;
-    targetVideoElement.preload = 'auto';
-    targetVideoElement.currentTime = preloader.currentTime || 0;
+    // Move it to visible position
+    newVideo.style.display = '';
+    newVideo.style.position = '';
+    newVideo.style.left = '';
+    newVideo.muted = false;
+    newVideo.id = 'video';
 
-    preloader.style.display = '';
-    preloader.style.position = '';
-    preloader.style.left = '';
-    preloader.muted = false;
-    preloader.controls = false;
+    // Remove from body (if still there)
+    if (newVideo.parentNode) newVideo.parentNode.removeChild(newVideo);
 
-    const playerContainer = targetVideoElement.parentNode;
-    if (playerContainer) {
-        playerContainer.replaceChild(preloader, targetVideoElement);
-    }
-
-    preloader.id = 'video';
     preloader = null;
-
-    return true;
+    return newVideo;
 }
 
 export function cleanupPreloader() {
