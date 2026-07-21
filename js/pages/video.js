@@ -30,7 +30,13 @@ export function Video(id) {
         progress <= video.duration - 600
             ? `▶️ Continue Watching • ${formatTime(progress)}`
             : "▶️ Watch Now";
-
+    
+    const preload = document.createElement("video");
+    preload.src = video.videoUrl;
+    preload.preload = "auto";
+    preload.muted = true;
+    preload.load();
+    
     return `
         ${Header()}
         
