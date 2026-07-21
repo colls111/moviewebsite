@@ -12,6 +12,7 @@ export function preloadVideo(url) {
     }
 
     preloader = document.createElement('video');
+    preloader.crossOrigin = "anonymous";
     preloader.id = 'video-preloader';
     preloader.preload = 'auto';
     preloader.muted = true;
