@@ -351,5 +351,25 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Underwater.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Underwater_f.vtt",
         "duration": 5704
+    },
+    {
+        "id": "16",
+        "title": "72 Hours",
+        "description": "A 40-year-old executive ends up at a three-day bachelor party with twenty-somethings after being mistakenly included in their chat group.",
+        "category": "Movies",
+        "genre": "Comedy",
+        "subgenre": "Raunchy",
+        "tags": [
+            "kevin",
+            "hart",
+            "vacation"
+        ],
+        "date": "2026",
+        "date_added": "2026-07-25",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/72_Hours.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/72_Hours_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/72_Hours.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/72_Hours.vtt",
+        "duration": 6315
     }
 ]
