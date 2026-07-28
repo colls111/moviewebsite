@@ -371,5 +371,29 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/72_Hours.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/72_Hours.vtt",
         "duration": 6315
+    },
+    {
+        "id": "ratatouille",
+        "title": "Ratatouille",
+        "description": "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous Paris restaurant.",
+        "category": "Movies",
+        "genre": "Family",
+        "subgenre": "Comedy",
+        "tags": [
+            "rat",
+            "food",
+            "sewers",
+            "linguini",
+            "french",
+            "france",
+            "paris"
+        ],
+        "date": "2007",
+        "date_added": "2026-07-28",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Ratatouille.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/Ratatouille_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Ratatouille.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Ratatouille.vtt",
+        "duration": 6633
     }
 ]
