@@ -419,5 +419,28 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/Greenland.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/Greenland.vtt",
         "duration": 7168
+    },
+    {
+        "id": "the-amazing-spider-man",
+        "title": "The Amazing Spider-Man",
+        "description": "After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to save the city from the machinations of a mysterious reptilian foe.",
+        "category": "Movies",
+        "genre": "Action",
+        "subgenre": "Sci-fi",
+        "tags": [
+            "spider",
+            "man",
+            "andrew",
+            "garfield",
+            "amazing",
+            "radioactive"
+        ],
+        "date": "2012",
+        "date_added": "2026-08-02",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/The_Amazing_Spider-Man.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/The_Amazing_Spider-Man_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Amazing_Spider-Man.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/The_Amazing_Spider-Man.vtt",
+        "duration": 8177
     }
 ]
