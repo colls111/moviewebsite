@@ -30,7 +30,7 @@ export function initializePlayer(currentVideo) {
     const captionsBtn = document.getElementById("captions");
     const track = document.getElementById("captionTrack");
     const captionsOverlay = document.getElementById("captionsOverlay");
-
+    
     const speed = document.getElementById("speed");
     const speedSlider = document.getElementById("speedSlider");
     const speedDisplay = document.getElementById("speedDisplay");
@@ -58,6 +58,15 @@ export function initializePlayer(currentVideo) {
     let captionsEnabled = false;
     let textTrack = null;
 
+    let captionsEnabled = false;
+    let textTrack = null;
+    
+    const MIN_CAPTION_SIZE = 16;
+    const MAX_CAPTION_SIZE = 64;
+    const CAPTION_SIZE_STEP = 2;
+    
+    let captionSize = Number(localStorage.getItem("caption-size")) || 28;
+    
     let cleanupFns = [];
 
     // ------------------------
@@ -199,6 +208,17 @@ export function initializePlayer(currentVideo) {
             case "c":
                 e.preventDefault();
                 toggleCaptions();
+                break;
+            case "+":
+            case "=":
+                e.preventDefault();
+                changeCaptionSize(CAPTION_SIZE_STEP);
+                break;
+            
+            case "-":
+            case "_":
+                e.preventDefault();
+                changeCaptionSize(-CAPTION_SIZE_STEP);
                 break;
             case "arrowleft":
                 e.preventDefault();
@@ -477,6 +497,16 @@ export function initializePlayer(currentVideo) {
         updateCaption();
     }
 
+    function changeCaptionSize(amount) {
+        captionSize = Math.max(
+            MIN_CAPTION_SIZE,
+            Math.min(MAX_CAPTION_SIZE, captionSize + amount)
+        );
+    
+        captionsOverlay.style.fontSize = `${captionSize}px`;
+        localStorage.setItem("caption-size", captionSize);
+    }
+    
     function saveProgress() {
         if (video.currentTime >= 60 && video.currentTime <= video.duration - 600) {
             localStorage.setItem(progressKey, video.currentTime);
@@ -520,13 +550,17 @@ export function initializePlayer(currentVideo) {
 
     function initCaptions() {
         textTrack = video.textTracks[0];
+    
         if (textTrack) {
             textTrack.mode = "hidden";
             addListener(textTrack, "cuechange", handleCueChange);
         }
-
+    
         captionsEnabled = localStorage.getItem("captions") === "true";
+    
         captionsOverlay.style.display = captionsEnabled ? "block" : "none";
+        captionsOverlay.style.fontSize = `${captionSize}px`;
+    
         captionsBtn.classList.toggle("active", captionsEnabled);
     }
 
