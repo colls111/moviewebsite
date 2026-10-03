@@ -57,9 +57,6 @@ export function initializePlayer(currentVideo) {
 
     let captionsEnabled = false;
     let textTrack = null;
-
-    let captionsEnabled = false;
-    let textTrack = null;
     
     const MIN_CAPTION_SIZE = 16;
     const MAX_CAPTION_SIZE = 64;
