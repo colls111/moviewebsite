@@ -465,5 +465,23 @@
         "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Amazing_Spider-Man_2.mp4",
         "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/The_Amazing_Spider-Man_2.vtt",
         "duration": 8495
+    },
+    {
+        "id": "descent",
+        "title": "The Descent",
+        "description": "A caving expedition goes horribly wrong when six explorers become trapped and ultimately pursued by a strange breed of predators.",
+        "category": "Movies",
+        "genre": "Horror",
+        "subgenre": "Adventure",
+        "tags": [
+            "descent"
+        ],
+        "date": "2014",
+        "date_added": "2026-08-02",
+        "thumbnail": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/The_Descent.webp",
+        "logo": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Thumbnails/The_Descent_logo.webp",
+        "video": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Movies/The_Descent.mp4",
+        "captions": "https://pub-523e44f7b37f47d29adcb674f8063b59.r2.dev/Captions/The_Descent.vtt",
+        "duration": 5940
     }
 ]
